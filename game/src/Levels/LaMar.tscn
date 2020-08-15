@@ -23,9 +23,11 @@ position = Vector2( 160.327, 90.4819 )
 
 [node name="Kraken" parent="." instance=ExtResource( 4 )]
 position = Vector2( 80, 32 )
+right_pattern = null
 sprite = ExtResource( 3 )
 
 [node name="Mermaid" parent="." instance=ExtResource( 4 )]
 position = Vector2( 32, 112 )
 default_pattern = ExtResource( 5 )
+right_pattern = null
 sprite = ExtResource( 6 )
