@@ -1,2 +1,2 @@
-# miz-jam-1
+# La isla del sol (Miz Jam 1)
 Nuestro juego para el Miz Jam 1 👉 Un barco espía que debe evitar ser detectado para robar una carga de cocaína 🚢 🚢 🚢 .
