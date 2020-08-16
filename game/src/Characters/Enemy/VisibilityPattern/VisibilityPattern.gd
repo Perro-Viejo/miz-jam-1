@@ -11,10 +11,10 @@ func _ready():
 		var v_zone: VisibilityZone = zone
 		v_zone.connect('player_seen', self, '_on_player_seen')
 
-func _on_player_seen(seen: bool) -> void:
-	if seen:
+func _on_player_seen(player_node: Node) -> void:
+	if player_node:
 		if _active_zones == 0:
-			emit_signal('player_entered')
+			emit_signal('player_entered', player_node)
 		_active_zones += 1
 	else:
 		_active_zones -= 1

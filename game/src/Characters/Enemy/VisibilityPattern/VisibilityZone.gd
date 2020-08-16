@@ -1,7 +1,7 @@
 class_name VisibilityZone
 extends Area2D
 
-signal player_seen(seen)
+signal player_seen(player_node)
 
 export(Texture) var active
 
@@ -14,9 +14,9 @@ func _ready():
 func _on_body_entered(body: Node) -> void:
 	if body.name == 'Player':
 		$Zone.texture = active
-		emit_signal('player_seen', true)
+		emit_signal('player_seen', body)
 
 func _on_body_exited(body: Node) -> void:
 	if body.name == 'Player':
 		$Zone.texture = _normal
-		emit_signal('player_seen', false)
+		emit_signal('player_seen', null)

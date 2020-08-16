@@ -3,11 +3,15 @@ class_name Enemy
 extends Node2D
 
 export(PackedScene) var default_pattern
-export(PackedScene) var right_pattern
 export(Texture) var sprite
+export(int) var time_to_catch = 3 # En segundos
+
+var alert_count := 0
 
 var _dflt_pattern: VisibilityPattern = null
 var _is_alert := false
+var _player_node: Player = null
+var _is_killing := false
 
 onready var _anchors: Dictionary = {
 	n = $Anchors/North,
@@ -32,16 +36,30 @@ func _ready():
 		$Patterns.add_child(_dflt_pattern)
 
 func _on_tween_completed(obj: Object, key: NodePath):
+	var subname := key.get_subname(0)
+	if subname == '_destroy_player' or _is_killing:
+		return
+	if subname == 'alert_count':
+		_destroy_player()
+		return
 	if not _is_alert:
 		$Alert.stop()
 		$Alert.frame = 0
+	else:
+		# $Tween.interpolate_callback(self, time_to_catch, '_destroy_player')
+		$Tween.interpolate_property(
+			self, 'alert_count',
+			1, time_to_catch,
+			time_to_catch
+		)
+		$Tween.connect('tween_step', self, '_on_tween_step')
 
 # Que cuando se active zona de enemigo muestre un emoticono
-func _show_alert() -> void:
+func _show_alert(player_node: Node) -> void:
+	if not _player_node: _player_node = player_node
 	_is_alert = true
 	$Tween.interpolate_property(
-		$Alert,
-		'self_modulate:a',
+		$Alert, 'self_modulate:a',
 		0.0, 1.0,
 		0.15, Tween.TRANS_EXPO, Tween.EASE_IN
 	)
@@ -49,16 +67,43 @@ func _show_alert() -> void:
 	$Alert.play('Show')
 
 func _hide_alert() -> void:
+	_player_node = null
 	_is_alert = false
+	$Tween.remove_all()
 	$Tween.interpolate_property(
-		$Alert,
-		'self_modulate:a',
+		$Alert, 'self_modulate:a',
 		1.0, 0.0,
 		0.1, Tween.TRANS_EXPO, Tween.EASE_OUT
 	)
 	$Tween.start()
-	
 
+func _destroy_player() -> void:
+	$Tween.disconnect('tween_step', self, '_on_tween_step')
+	if _is_alert:
+		_is_killing = true
+		# Si el jugador no ha dejado las zonas de visión, matar al hijueputa
+		$Tween.interpolate_property(
+			$Sprite, 'global_position',
+			global_position, _player_node.global_position,
+			0.5, Tween.TRANS_BOUNCE, Tween.EASE_IN
+		)
+		$Tween.interpolate_property(
+			$Alert, 'self_modulate:a',
+			1.0, 0.0,
+			0.3, Tween.TRANS_SINE, Tween.EASE_OUT
+		)
+		$Tween.start()
+		# TODO: quitar el control al jugador
+
+func _on_tween_step(
+		obj: Object, key: NodePath, elapsed: float, value: Object
+	) -> void:
+		print(alert_count)
+
+
+# ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+# ▒ N O T A S ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+# ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
 # El bicho puede tener un looking direction que indica cuál de los patrones está
 # activo y lo hace visible.
 
@@ -75,4 +120,6 @@ func _hide_alert() -> void:
 # Al enemigo debería poder configurarse el Sprite y el patrón para cada una de
 # las direcciones de visión. Si no se define un patrón para cierta dirección,
 # podría usarse el que se define por defecto pero girado X grados.
-
+# ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+# ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ N O T A S ▒
+# ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
