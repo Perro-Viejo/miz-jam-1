@@ -19,4 +19,5 @@ func _on_animation_finished():
 		for area in $ExplosionShape.get_overlapping_areas():
 			if area.owner.get_name() == "Player":
 				Event.emit_signal("player_killed")
-				queue_free()
+		
+		queue_free()
