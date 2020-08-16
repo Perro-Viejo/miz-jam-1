@@ -137,6 +137,9 @@ animations = [ {
 script = ExtResource( 2 )
 default_pattern = ExtResource( 3 )
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Anchors" type="Node2D" parent="."]
