@@ -11,10 +11,12 @@ func _ready():
 
 func _on_body_entered(area):
 	if area.get_name() == "Player" or "Bomb" in area.get_name():
+		$ExplosionShape.get_node("./Sprite").visible = true
 		$AnimatedSprite.play("Twinkle")	
 
 func _on_animation_finished():
 	if $AnimatedSprite.animation == "Twinkle":
 		for area in $ExplosionShape.get_overlapping_areas():
 			if area.owner.get_name() == "Player":
-				Event.emit_signal('player_killed')
+				Event.emit_signal("player_killed")
+				queue_free()

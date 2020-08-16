@@ -75,7 +75,10 @@ func _explode() -> void:
 	$AnimatedSprite.play(
 		'Explode0%d' % (randi() % 3 + 1)
 	)
+	is_control_active = false
+	motion = Vector2.ZERO
 	yield($AnimatedSprite, 'animation_finished')
+	$AnimatedSprite/WaterSplatter.hide()
 	Event.emit_signal('level_lost')
 
 func get_class():
