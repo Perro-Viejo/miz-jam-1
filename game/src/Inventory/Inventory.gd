@@ -13,12 +13,14 @@ func _add_item_to_inventory(item) -> bool:
 			_inventory[item.name] = [item]
 		item.container = self
 		_current_size += item.size
+		print(_current_size)
 		on_item_added(item)
 		return true
 	
 	return false
 
 func add_to_inventory(item) -> bool:
+	print(item.get_type())
 	if item.is_type("Item"):
 		return _add_item_to_inventory(item)
 	else:
@@ -52,3 +54,6 @@ func on_item_added(item) -> void:
 
 func on_item_removed(item) -> void:
 	pass
+
+func get_current_size() -> int:
+	return _current_size

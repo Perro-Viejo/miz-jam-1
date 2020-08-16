@@ -16,7 +16,7 @@ export(float) var deceleration = 0.01
 var motion = Vector2.ZERO
 var velocity = Vector2.ZERO
 
-var is_control_active = false
+var is_control_active = true
 
 func _ready() -> void:
 	Event.connect('set_control_active', self, '_set_control_active')
