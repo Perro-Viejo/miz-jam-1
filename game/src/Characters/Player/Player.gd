@@ -16,7 +16,10 @@ export(float) var deceleration = 0.01
 var motion = Vector2.ZERO
 var velocity = Vector2.ZERO
 
+var is_control_active = false
+
 func _ready() -> void:
+	Event.connect('set_control_active', self, '_set_control_active')
 	play_animation()
 
 func change_zoom(out: bool = true) -> void:
@@ -51,7 +54,9 @@ func play_animation(state: String = '') -> void:
 func play_fs(id):
 	Event.emit_signal('play_requested', "Player", id)
 
-
+func _set_control_active(is_active: bool):
+	is_control_active = is_active
+	
 func speak(text := '', time_to_disappear := 0):
 	Event.emit_signal('character_spoke', self, text, time_to_disappear)
 

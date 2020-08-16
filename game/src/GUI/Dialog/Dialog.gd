@@ -50,7 +50,7 @@ func _play_dialog(dialog_name: String) -> void:
 
 	if _story_reader.get_nid_via_exact_text(_did, 'return') > 0:
 		_in_dialog_with_options = true
-		Event.emit_signal('control_toggled')
+		Event.emit_signal('set_control_active', false)
 
 	_continue_dialog()
 
@@ -253,7 +253,7 @@ func _autofill_completed() -> void:
 		# TODO: Puede haber una mejor manera de hacer esto, cosa que la alternación
 		# del control del PC suceda en un único lugar dentro del código de esta
 		# clase
-		Event.emit_signal('control_toggled')
+		Event.emit_signal('set_control_active', false)
 		Event.emit_signal('dialog_paused')
 		return
 
@@ -290,7 +290,7 @@ func _finish_dialog() -> void:
 		_options_nid = 0
 		_in_dialog_with_options = false
 		_dialog_menu.remove_options()
-		Event.emit_signal('control_toggled')
+		Event.emit_signal('set_control_active', true)
 
 	Event.emit_signal('dialog_finished')
 
