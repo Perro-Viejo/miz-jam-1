@@ -77,3 +77,6 @@ func _explode() -> void:
 	)
 	yield($AnimatedSprite, 'animation_finished')
 	Event.emit_signal('level_lost')
+
+func get_class():
+	return "Player"
