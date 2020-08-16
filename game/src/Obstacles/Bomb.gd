@@ -13,6 +13,7 @@ func _on_body_entered(area):
 	if area.get_name() == "Player" or "Bomb" in area.get_name():
 		$ExplosionShape.get_node("./Sprite").visible = true
 		$AnimatedSprite.play("Twinkle")
+		Event.emit_signal("play_requested", "Bomb", "Hit")
 		Event.emit_signal("play_requested", "Bomb", "Activate")
 
 func _on_animation_finished():

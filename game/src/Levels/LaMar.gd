@@ -13,6 +13,8 @@ func _ready():
 	Event.emit_signal("play_requested", "MX", "inGame")
 
 func on_win():
+	_player.play_splatter(false)
+	Event.emit_signal("stop_requested", "Boat", "Loop")
 	Event.emit_signal("play_requested", "UI", "Win")
 	Event.emit_signal("stop_requested", "MX", "inGame")
 	Event.emit_signal('set_control_active', false)

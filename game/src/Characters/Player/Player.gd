@@ -73,6 +73,8 @@ func _toggle_control() -> void:
 
 func _explode() -> void:
 	Event.emit_signal("play_requested", "Boat", "Explode")
+	Event.emit_signal("stop_requested", "Boat", "Loop")
+	play_splatter(false)
 	$AnimatedSprite.play(
 		'Explode0%d' % (randi() % 3 + 1)
 	)
