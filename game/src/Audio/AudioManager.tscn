@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/Audio/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/sfx_boat_start.ogg" type="AudioStream" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://assets/audio/ui_number.ogg" type="AudioStream" id=13]
 [ext_resource path="res://assets/audio/ui_alert_gen.ogg" type="AudioStream" id=14]
 [ext_resource path="res://src/Audio/RandomTool.gd" type="Script" id=15]
+[ext_resource path="res://assets/audio/sfx_bomb_explode_02.ogg" type="AudioStream" id=16]
+[ext_resource path="res://assets/audio/sfx_bomb_explode_01.ogg" type="AudioStream" id=17]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -40,6 +42,7 @@ stream = ExtResource( 10 )
 
 [node name="inGame" type="AudioStreamPlayer" parent="MX"]
 stream = ExtResource( 7 )
+volume_db = -5.0
 
 [node name="Menu" type="AudioStreamPlayer" parent="MX"]
 stream = ExtResource( 6 )
@@ -48,13 +51,23 @@ stream = ExtResource( 6 )
 
 [node name="Activate" type="AudioStreamPlayer" parent="Bomb"]
 stream = ExtResource( 8 )
+volume_db = -16.0
 
 [node name="Explode" type="Node2D" parent="Bomb"]
 script = ExtResource( 15 )
+random_volume = true
+min_volume = -3.0
+random_pitch = true
+min_pitch = -4.0
+max_pitch = 2.0
 
 [node name="explode_01" type="AudioStreamPlayer" parent="Bomb/Explode"]
+stream = ExtResource( 17 )
+volume_db = -6.0
 
 [node name="explode_02" type="AudioStreamPlayer" parent="Bomb/Explode"]
+stream = ExtResource( 16 )
+volume_db = -6.0
 
 [node name="Enemy" type="Node2D" parent="."]
 
@@ -68,6 +81,7 @@ stream = ExtResource( 14 )
 
 [node name="DangerZone" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 11 )
+volume_db = -8.0
 
 [node name="Number" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 13 )

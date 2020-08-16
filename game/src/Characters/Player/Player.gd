@@ -72,6 +72,7 @@ func _toggle_control() -> void:
 	$StateMachine.transition_to(STATES.IDLE)
 
 func _explode() -> void:
+	Event.emit_signal("play_requested", "Boat", "Explode")
 	$AnimatedSprite.play(
 		'Explode0%d' % (randi() % 3 + 1)
 	)

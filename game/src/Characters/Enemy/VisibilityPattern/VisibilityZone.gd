@@ -13,6 +13,7 @@ func _ready():
 
 func _on_body_entered(body: Node) -> void:
 	if body.name == 'Player':
+		Event.emit_signal("play_requested", "UI", "DangerZone")
 		$Zone.texture = active
 		emit_signal('player_seen', body)
 

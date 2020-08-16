@@ -92,6 +92,7 @@ func _on_tween_completed(obj: Object, key: NodePath):
 
 # Que cuando se active zona de enemigo muestre un emoticono
 func _show_alert(player_node: Node) -> void:
+	Event.emit_signal("play_requested", "UI", "Alert_Gen")
 	if not _player_node: _player_node = player_node
 	$Timer.stop()
 	_is_alert = true
@@ -114,6 +115,7 @@ func _hide_alert() -> void:
 	$Tween.start()
 
 func _destroy_player() -> void:
+	Event.emit_signal("play_requested", "Enemy", "Attk_Gen")
 	$Tween.disconnect('tween_step', self, '_on_tween_step')
 	if _is_alert:
 		_is_killing = true
@@ -143,6 +145,7 @@ func _on_tween_step(
 		obj: Object, key: NodePath, elapsed: float, value: Object
 	) -> void:
 		$Alert.play(str(alert_count + 1))
+		
 
 func _set_defaults() -> void:
 	_player_node = null
