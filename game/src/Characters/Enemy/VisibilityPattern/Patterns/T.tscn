@@ -6,13 +6,13 @@
 [node name="T" instance=ExtResource( 1 )]
 
 [node name="VisibilityZone2" parent="Zones" index="1" instance=ExtResource( 2 )]
-position = Vector2( 32, 0 )
+position = Vector2( 24, 0 )
 
 [node name="VisibilityZone3" parent="Zones" index="2" instance=ExtResource( 2 )]
-position = Vector2( 48, 0 )
+position = Vector2( 40, 0 )
 
 [node name="VisibilityZone4" parent="Zones" index="3" instance=ExtResource( 2 )]
-position = Vector2( 48, -16 )
+position = Vector2( 40, -16 )
 
 [node name="VisibilityZone5" parent="Zones" index="4" instance=ExtResource( 2 )]
-position = Vector2( 48, 16 )
+position = Vector2( 40, 16 )

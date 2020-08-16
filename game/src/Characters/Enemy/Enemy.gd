@@ -194,7 +194,6 @@ func _change_looking_direction() -> void:
 					_dflt_pattern.scale.x = 1
 					_dflt_pattern.scale.y = 1
 					_looking_at = LookingDirection.UP
-	
 	# Reiniciar el temporizador para volver a cambiar la mirada al futuro
 	$Timer.start()
 
