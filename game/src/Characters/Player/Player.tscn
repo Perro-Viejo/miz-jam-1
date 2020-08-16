@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/images/characters/ship.png" type="Texture" id=1]
 [ext_resource path="res://src/Characters/Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://src/StateMachine/StateMachine.gd" type="Script" id=3]
 [ext_resource path="res://src/Characters/Player/States/Idle.gd" type="Script" id=4]
+[ext_resource path="res://src/Inventory/Inventory.gd" type="Script" id=5]
 [ext_resource path="res://src/Characters/Player/States/Move.gd" type="Script" id=6]
 [ext_resource path="res://src/Characters/Player/States/Grab.gd" type="Script" id=7]
 [ext_resource path="res://src/Characters/Player/States/Drop.gd" type="Script" id=8]
@@ -133,3 +134,6 @@ shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="FishingSpot"]
 wait_time = 0.4
+
+[node name="Inventory" type="Node" parent="."]
+script = ExtResource( 5 )

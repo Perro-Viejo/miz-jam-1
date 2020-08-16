@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Levels/LaMar.gd" type="Script" id=1]
 [ext_resource path="res://src/Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://src/Characters/Enemy/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Characters/Enemy/VisibilityPattern/Patterns/T.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/images/characters/mermaid.png" type="Texture" id=6]
+[ext_resource path="res://src/Levels/ImportantAreas/TreasureArea.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Levels/ImportantAreas/StartArea.tscn" type="PackedScene" id=8]
 
 [node name="LaMar" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,12 +24,16 @@ __meta__ = {
 position = Vector2( 160.327, 90.4819 )
 
 [node name="Kraken" parent="." instance=ExtResource( 4 )]
-position = Vector2( 80, 32 )
-right_pattern = null
+position = Vector2( 81.5814, 42.437 )
 sprite = ExtResource( 3 )
 
 [node name="Mermaid" parent="." instance=ExtResource( 4 )]
 position = Vector2( 32, 112 )
 default_pattern = ExtResource( 5 )
-right_pattern = null
 sprite = ExtResource( 6 )
+
+[node name="TreasureArea" parent="." instance=ExtResource( 7 )]
+position = Vector2( 11.7567, 12.2754 )
+
+[node name="StartArea" parent="." instance=ExtResource( 8 )]
+position = Vector2( 308.442, 169.09 )

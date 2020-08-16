@@ -1,5 +1,5 @@
 class_name Player
-extends KinematicBody2D
+extends "res://src/Characters/Actor.gd"
 
 const STATES = {
 	MOVE = 'Move',
