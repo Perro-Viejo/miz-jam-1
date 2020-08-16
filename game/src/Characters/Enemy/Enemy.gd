@@ -21,6 +21,8 @@ onready var _anchors: Dictionary = {
 }
 
 func _ready():
+	self.z_index = 3
+	
 	$Alert.self_modulate.a = 0
 	
 	# Conectarse a señales de los hijos
@@ -34,7 +36,7 @@ func _ready():
 		_dflt_pattern.connect('player_entered', self, '_show_alert')
 		_dflt_pattern.connect('player_left', self, '_hide_alert')
 		$Patterns.add_child(_dflt_pattern)
-
+	
 func _on_tween_completed(obj: Object, key: NodePath):
 	var subname := key.get_subname(0)
 	
