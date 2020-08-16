@@ -49,8 +49,8 @@ func _on_tween_completed(obj: Object, key: NodePath):
 		# $Tween.interpolate_callback(self, time_to_catch, '_destroy_player')
 		$Tween.interpolate_property(
 			self, 'alert_count',
-			1, time_to_catch,
-			time_to_catch
+			time_to_catch, 0,
+			time_to_catch, Tween.TRANS_LINEAR, Tween.EASE_IN, 1
 		)
 		$Tween.connect('tween_step', self, '_on_tween_step')
 
@@ -81,6 +81,10 @@ func _destroy_player() -> void:
 	$Tween.disconnect('tween_step', self, '_on_tween_step')
 	if _is_alert:
 		_is_killing = true
+
+		# quitar el control al jugador
+		# Event.emit('set_control_active', false)
+		
 		# Si el jugador no ha dejado las zonas de visión, matar al hijueputa
 		$Tween.interpolate_property(
 			$Sprite, 'global_position',
@@ -92,13 +96,17 @@ func _destroy_player() -> void:
 			1.0, 0.0,
 			0.3, Tween.TRANS_SINE, Tween.EASE_OUT
 		)
+		$Tween.interpolate_property(
+			$Patterns, 'modulate:a',
+			1.0, 0.0,
+			0.1, Tween.TRANS_SINE, Tween.EASE_OUT
+		)
 		$Tween.start()
-		# TODO: quitar el control al jugador
 
 func _on_tween_step(
 		obj: Object, key: NodePath, elapsed: float, value: Object
 	) -> void:
-		print(alert_count)
+		$Alert.play(str(alert_count + 1))
 
 
 # ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
