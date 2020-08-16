@@ -37,11 +37,22 @@ func _ready():
 
 func _on_tween_completed(obj: Object, key: NodePath):
 	var subname := key.get_subname(0)
-	if subname == '_destroy_player' or _is_killing:
-		return
-	if subname == 'alert_count':
-		_destroy_player()
-		return
+	
+	match subname:
+		'_destroy_player':
+			return
+		'alert_count':
+			_destroy_player()
+			return
+		'global_position':
+			_player_node.get_node('AnimatedSprite').play(
+				'Explode0%d' % (randi() % 3 + 1)
+			)
+			yield(get_tree().create_timer(2), 'timeout')
+			Event.emit_signal("Restart")
+			return
+	if _is_killing: return
+
 	if not _is_alert:
 		$Alert.stop()
 		$Alert.frame = 0
