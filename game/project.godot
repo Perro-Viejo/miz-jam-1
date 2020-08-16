@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/GUI/Dialog/Autofill.gd"
 }, {
-"base": "RigidBody2D",
-"class": "Bomb",
-"language": "GDScript",
-"path": "res://src/Obstacles/Bomb.gd"
-}, {
 "base": "Control",
 "class": "Dialog",
 "language": "GDScript",
@@ -101,7 +96,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Autofill": "",
-"Bomb": "",
 "Dialog": "",
 "DialogMenu": "",
 "EXP_StoryReader": "",

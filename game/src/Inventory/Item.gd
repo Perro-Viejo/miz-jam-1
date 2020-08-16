@@ -26,8 +26,8 @@ func desactivate() -> void:
 	pass
 
 func _ready():
-	var sprite = Sprite.new()
-	sprite.texture = load("res://assets/images/world/%s.png" % item_name)
-	add_child(sprite)
+	var _sprite = Sprite.new()
+	_sprite.texture = load("res://assets/images/world/%s.png" % item_name)
+	add_child(_sprite)
 	var position = owner.get_node("TreasurePosition")
-	sprite.global_position = position.global_position
+	_sprite.global_position = position.global_position
