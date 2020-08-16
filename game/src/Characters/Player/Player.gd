@@ -80,3 +80,11 @@ func _explode() -> void:
 
 func get_class():
 	return "Player"
+
+func play_splatter(play := true) -> void:
+	if play:
+		$AnimatedSprite/WaterSplatter.show()
+		$AnimatedSprite/WaterSplatter.play('Splash')
+	else:
+		$AnimatedSprite/WaterSplatter.hide()
+		$AnimatedSprite/WaterSplatter.playing = false

@@ -16,8 +16,10 @@ func _physics_process(delta) -> void:
 		owner.velocity = Vector2(owner.speed, 0).rotated(owner.rotation - PI/2)
 		if Input.is_action_pressed("Up"):
 			owner.motion = owner.motion.linear_interpolate(owner.velocity, owner.acceleration)
+			owner.play_splatter()
 		else:
 			owner.motion = owner.motion.linear_interpolate(Vector2.ZERO, owner.deceleration)
+			owner.play_splatter(false)
 	
 func enter(msg: Dictionary = {}) -> void:
 	.enter(msg)
