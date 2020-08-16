@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_boat_explode.ogg-711f1f06e22b5bdd2c9267ccd55b9afd.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx_boat_explode.ogg"
+dest_files=[ "res://.import/sfx_boat_explode.ogg-711f1f06e22b5bdd2c9267ccd55b9afd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

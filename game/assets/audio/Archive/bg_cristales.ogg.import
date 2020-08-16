@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bg_cristales.ogg-8cd26f62a81ebf0ea043fc4c723ccdea.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Archive/bg_cristales.ogg"
+dest_files=[ "res://.import/bg_cristales.ogg-8cd26f62a81ebf0ea043fc4c723ccdea.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

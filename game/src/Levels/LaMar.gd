@@ -10,8 +10,11 @@ func _ready():
 	_player.rotation = initial_angle
 	# Conectarse a eventos del mundo chimpocomón
 	Event.connect('level_lost', self, '_on_lose')
+	Event.emit_signal("play_requested", "MX", "inGame")
 
 func on_win():
+	Event.emit_signal("play_requested", "UI", "Win")
+	Event.emit_signal("stop_requested", "MX", "inGame")
 	print("Won level")
 	
 func _on_lose():

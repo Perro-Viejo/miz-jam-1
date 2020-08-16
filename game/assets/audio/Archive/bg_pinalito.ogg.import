@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bg_pinalito.ogg-b3fe94c37c8e34db83b06296f7417dd8.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Archive/bg_pinalito.ogg"
+dest_files=[ "res://.import/bg_pinalito.ogg-b3fe94c37c8e34db83b06296f7417dd8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

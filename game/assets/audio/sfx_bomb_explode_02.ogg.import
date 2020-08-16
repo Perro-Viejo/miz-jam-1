@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_bomb_explode_02.ogg-8e888998b204dd9cd98d3c2b0b68e561.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/sfx_bomb_explode_02.ogg"
+dest_files=[ "res://.import/sfx_bomb_explode_02.ogg-8e888998b204dd9cd98d3c2b0b68e561.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

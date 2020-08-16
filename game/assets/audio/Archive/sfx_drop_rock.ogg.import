@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_drop_rock.ogg-c06ecfa3e57fdf802e598a6671938399.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Archive/sfx_drop_rock.ogg"
+dest_files=[ "res://.import/sfx_drop_rock.ogg-c06ecfa3e57fdf802e598a6671938399.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

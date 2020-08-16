@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_demon_burn.ogg-ee0e3df3f7a392862a1a2c7e0d3aed1c.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Archive/sfx_demon_burn.ogg"
+dest_files=[ "res://.import/sfx_demon_burn.ogg-ee0e3df3f7a392862a1a2c7e0d3aed1c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

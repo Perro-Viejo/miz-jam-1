@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_demon_ignite.ogg-4282ac051472daad8a479fc686d88f06.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Archive/sfx_demon_ignite.ogg"
+dest_files=[ "res://.import/sfx_demon_ignite.ogg-4282ac051472daad8a479fc686d88f06.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

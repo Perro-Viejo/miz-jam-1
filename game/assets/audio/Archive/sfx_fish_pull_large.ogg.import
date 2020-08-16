@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_fish_pull_large.ogg-1fe64660560192d47612e4f1f0ff6049.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Archive/sfx_fish_pull_large.ogg"
+dest_files=[ "res://.import/sfx_fish_pull_large.ogg-1fe64660560192d47612e4f1f0ff6049.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

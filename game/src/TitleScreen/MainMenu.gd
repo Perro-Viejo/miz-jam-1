@@ -34,6 +34,7 @@ func _ready()->void:
 	Settings.connect('ReTranslate', self, 'retranslate') # Localización
 
 	retranslate()
+	
 
 
 func _process(delta):

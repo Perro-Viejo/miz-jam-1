@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sfx_zoomout.ogg-a40ef175c3aaf8bbdd92147ea8bf4aea.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/Archive/sfx_zoomout.ogg"
+dest_files=[ "res://.import/sfx_zoomout.ogg-a40ef175c3aaf8bbdd92147ea8bf4aea.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
