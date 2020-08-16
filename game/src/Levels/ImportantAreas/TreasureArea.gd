@@ -18,3 +18,5 @@ func _on_body_entered(body: Node) -> void:
 		
 		inventory.add_child(treasure)
 		inventory.add_to_inventory(treasure)
+		
+		Event.emit_signal('play_requested', 'Boat', 'Grab')

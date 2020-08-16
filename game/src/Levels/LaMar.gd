@@ -15,7 +15,7 @@ func _ready():
 func on_win():
 	Event.emit_signal("play_requested", "UI", "Win")
 	Event.emit_signal("stop_requested", "MX", "inGame")
-	print("Won level")
+	Event.emit_signal('set_control_active', false)
 	
 func _on_lose():
 	Event.emit_signal("Restart")

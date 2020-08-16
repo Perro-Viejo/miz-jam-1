@@ -261,19 +261,14 @@ position = Vector2( 160.673, 90.309 )
 [node name="Kraken" parent="." instance=ExtResource( 4 )]
 position = Vector2( 196.901, 89.9827 )
 sprite = ExtResource( 3 )
-time_to_catch = 3
-time_to_change = 6
 looking_pattern = 1
-inverse_looking_pattern = false
 
 [node name="Mermaid" parent="." instance=ExtResource( 4 )]
 position = Vector2( 84.0409, 89.0052 )
 default_pattern = ExtResource( 5 )
 sprite = ExtResource( 6 )
-time_to_catch = 3
 time_to_change = 2
 looking_pattern = 3
-inverse_looking_pattern = false
 
 [node name="TreasureArea" parent="." instance=ExtResource( 7 )]
 position = Vector2( 278.704, 134.407 )

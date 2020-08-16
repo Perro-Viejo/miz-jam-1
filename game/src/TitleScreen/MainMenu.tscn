@@ -66,24 +66,24 @@ margin_bottom = 164.0
 size_flags_vertical = 3
 
 [node name="NameContainer" type="VBoxContainer" parent="BG/MarginContainer/VBoxMain"]
-margin_left = 93.0
+margin_left = 81.0
 margin_right = 288.0
 margin_bottom = 72.0
 size_flags_horizontal = 8
 size_flags_vertical = 3
 custom_constants/separation = 0
 
-[node name="Kaloche" type="Label" parent="BG/MarginContainer/VBoxMain/NameContainer"]
-margin_right = 195.0
+[node name="LaCumbancha" type="Label" parent="BG/MarginContainer/VBoxMain/NameContainer"]
+margin_right = 207.0
 margin_bottom = 42.0
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.901961, 0.282353, 0.180392, 1 )
-text = "Nombrejuego"
+custom_colors/font_color = Color( 0.235294, 0.67451, 0.843137, 1 )
+text = "La cumbancha"
 align = 2
 
 [node name="Version" type="Label" parent="BG/MarginContainer/VBoxMain/NameContainer"]
 margin_top = 42.0
-margin_right = 195.0
+margin_right = 207.0
 margin_bottom = 61.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.956863, 0.705882, 0.105882, 1 )

@@ -19,6 +19,7 @@ var _player_node: Player = null
 var _is_killing := false
 var _dflt_alert_animation := 'Show'
 var _looking_at := -1
+var _prev_alert_count := -1
 
 onready var _anchors: Dictionary = {
 	n = $Anchors/North,
@@ -88,7 +89,8 @@ func _on_tween_completed(obj: Object, key: NodePath):
 		time_to_catch, 0,
 		time_to_catch, Tween.TRANS_LINEAR, Tween.EASE_IN, 1
 	)
-	$Tween.connect('tween_step', self, '_on_tween_step')
+	if not $Tween.is_connected('tween_step', self, '_on_tween_step'):
+		$Tween.connect('tween_step', self, '_on_tween_step')
 
 # Que cuando se active zona de enemigo muestre un emoticono
 func _show_alert(player_node: Node) -> void:
@@ -116,7 +118,8 @@ func _hide_alert() -> void:
 
 func _destroy_player() -> void:
 	Event.emit_signal("play_requested", "Enemy", "Attk_Gen")
-	$Tween.disconnect('tween_step', self, '_on_tween_step')
+	if not $Tween.is_connected('tween_step', self, '_on_tween_step'):
+		$Tween.disconnect('tween_step', self, '_on_tween_step')
 	if _is_alert:
 		_is_killing = true
 
@@ -144,6 +147,9 @@ func _destroy_player() -> void:
 func _on_tween_step(
 		obj: Object, key: NodePath, elapsed: float, value: Object
 	) -> void:
+		if _prev_alert_count != alert_count:
+			_prev_alert_count = alert_count
+			Event.emit_signal('play_requested', 'UI', 'Number')
 		$Alert.play(str(alert_count + 1))
 		
 
@@ -151,6 +157,7 @@ func _set_defaults() -> void:
 	_player_node = null
 	_is_alert = false
 	alert_count = 0
+	_prev_alert_count = -1
 	if $Tween.is_connected('tween_step', self, '_on_tween_step'):
 		$Tween.disconnect('tween_step', self, '_on_tween_step')
 
