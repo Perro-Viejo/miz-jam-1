@@ -20,6 +20,7 @@ var is_control_active = true
 
 func _ready() -> void:
 	Event.connect('set_control_active', self, '_set_control_active')
+	Event.connect('player_killed', self, '_explode')
 	play_animation()
 
 func change_zoom(out: bool = true) -> void:
@@ -69,3 +70,10 @@ func _should_speak(character_name, text, time, emotion) -> void:
 
 func _toggle_control() -> void:
 	$StateMachine.transition_to(STATES.IDLE)
+
+func _explode() -> void:
+	$AnimatedSprite.play(
+		'Explode0%d' % (randi() % 3 + 1)
+	)
+	yield($AnimatedSprite, 'animation_finished')
+	Event.emit_signal('level_lost')

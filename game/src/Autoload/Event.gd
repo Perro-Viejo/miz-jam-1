@@ -38,6 +38,7 @@ signal intro_shown(msg)
 signal zone_entered(name)
 signal world_entered
 signal rod_selected(rod)
+signal level_lost
 
 # Cosas de interruptores ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
 signal switch_on(id)
@@ -45,6 +46,7 @@ signal switch_off(id)
 
 # Para todo lo que tenga que ver con el personaje jugable
 signal set_control_active(is_active)
+signal player_killed
 # ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
 
 # Cosas del HUDs ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 

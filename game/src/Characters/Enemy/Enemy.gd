@@ -45,11 +45,7 @@ func _on_tween_completed(obj: Object, key: NodePath):
 			_destroy_player()
 			return
 		'global_position':
-			_player_node.get_node('AnimatedSprite').play(
-				'Explode0%d' % (randi() % 3 + 1)
-			)
-			yield(get_tree().create_timer(2), 'timeout')
-			Event.emit_signal("Restart")
+			Event.emit_signal('player_killed')
 			return
 	if _is_killing: return
 
@@ -57,7 +53,6 @@ func _on_tween_completed(obj: Object, key: NodePath):
 		$Alert.stop()
 		$Alert.frame = 0
 	else:
-		# $Tween.interpolate_callback(self, time_to_catch, '_destroy_player')
 		$Tween.interpolate_property(
 			self, 'alert_count',
 			time_to_catch, 0,
@@ -93,8 +88,8 @@ func _destroy_player() -> void:
 	if _is_alert:
 		_is_killing = true
 
-		# quitar el control al jugador
-		# Event.emit('set_control_active', false)
+		# Quitar el control al jugador
+		Event.emit_signal('set_control_active', false)
 		
 		# Si el jugador no ha dejado las zonas de visión, matar al hijueputa
 		$Tween.interpolate_property(
