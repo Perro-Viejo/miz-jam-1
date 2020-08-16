@@ -5,11 +5,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_body_entered(body: Node) -> void:
-	print(body.name)
 	if body.name != 'Player':
 		return
-	
-	print(body.get_node("./Inventory").get_current_size())
 	
 	if body.get_node("./Inventory").get_current_size() > 0:
 		owner.on_win()

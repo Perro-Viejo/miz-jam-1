@@ -20,7 +20,6 @@ func _add_item_to_inventory(item) -> bool:
 	return false
 
 func add_to_inventory(item) -> bool:
-	print(item.get_type())
 	if item.is_type("Item"):
 		return _add_item_to_inventory(item)
 	else:
