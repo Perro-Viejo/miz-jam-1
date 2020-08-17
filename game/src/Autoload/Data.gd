@@ -3,6 +3,7 @@ extends Node
 const DEV_MODE := 'DEV_MODE'
 const CURRENT_SCENE := 'CURRENT_SCENE'
 const DIALOGS := 'DIALOGS'
+const MAIN_MENU_SCN := 'MAIN_MENU_SCENE'
 
 enum BAITS {NADA, GUSANO, SANGRE}
 

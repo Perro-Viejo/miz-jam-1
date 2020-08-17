@@ -3,6 +3,8 @@ extends CanvasLayer
 export (String, FILE, "*.tscn") var Main_Menu: String
 
 func _ready()->void:
+	Data.set_data(Data.MAIN_MENU_SCN, Main_Menu)
+	
 	Event.connect("Paused", self, "on_show_paused")
 	Event.connect("Options", self, "on_show_options")
 	Event.Paused = false
@@ -34,7 +36,7 @@ func _on_Options_pressed():
 
 func _on_MainMenu_pressed():
 	Event.emit_signal('play_requested', 'UI', 'Gen_Button')
-	Event.emit_signal("ChangeScene", Main_Menu)
+	Event.emit_signal("ChangeScene", Data.get_data(Data.MAIN_MENU_SCN))
 	Event.Paused = false
 
 func _on_Exit_pressed():
