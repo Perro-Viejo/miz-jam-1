@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://src/Audio/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/sfx_boat_start.ogg" type="AudioStream" id=2]
@@ -13,11 +13,17 @@
 [ext_resource path="res://assets/audio/ui_dangerzone.ogg" type="AudioStream" id=11]
 [ext_resource path="res://assets/audio/ui_win.ogg" type="AudioStream" id=12]
 [ext_resource path="res://assets/audio/ui_number.ogg" type="AudioStream" id=13]
-[ext_resource path="res://assets/audio/ui_alert_gen.ogg" type="AudioStream" id=14]
+[ext_resource path="res://assets/audio/ui_kraken_alert_01.ogg" type="AudioStream" id=14]
 [ext_resource path="res://src/Audio/RandomTool.gd" type="Script" id=15]
 [ext_resource path="res://assets/audio/sfx_bomb_explode_02.ogg" type="AudioStream" id=16]
 [ext_resource path="res://assets/audio/sfx_bomb_explode_01.ogg" type="AudioStream" id=17]
-[ext_resource path="res://assets/audio/sfx_bomb_hit.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/audio/sfx_bomb_hit_03.ogg" type="AudioStream" id=18]
+[ext_resource path="res://assets/audio/sfx_bomb_hit_01.ogg" type="AudioStream" id=19]
+[ext_resource path="res://assets/audio/sfx_bomb_hit_02.ogg" type="AudioStream" id=20]
+[ext_resource path="res://assets/audio/ui_kraken_alert_02.ogg" type="AudioStream" id=21]
+[ext_resource path="res://assets/audio/ui_button_menu_01.ogg" type="AudioStream" id=22]
+[ext_resource path="res://assets/audio/ui_button_menu_03.ogg" type="AudioStream" id=23]
+[ext_resource path="res://assets/audio/ui_button_menu_02.ogg" type="AudioStream" id=24]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -61,11 +67,6 @@ stream = ExtResource( 6 )
 stream = ExtResource( 8 )
 volume_db = -16.0
 
-[node name="Hit" type="AudioStreamPlayer" parent="Bomb"]
-stream = ExtResource( 18 )
-volume_db = -12.0
-pitch_scale = 1.6
-
 [node name="Explode" type="Node2D" parent="Bomb"]
 script = ExtResource( 15 )
 random_volume = true
@@ -82,15 +83,31 @@ volume_db = -6.0
 stream = ExtResource( 16 )
 volume_db = -6.0
 
+[node name="Hit" type="Node2D" parent="Bomb"]
+script = ExtResource( 15 )
+volume = -6.0
+random_volume = true
+min_volume = -3.0
+max_volume = 1.5
+random_pitch = true
+min_pitch = -2.0
+max_pitch = 3.0
+
+[node name="hit_01" type="AudioStreamPlayer" parent="Bomb/Hit"]
+stream = ExtResource( 19 )
+
+[node name="hit_02" type="AudioStreamPlayer" parent="Bomb/Hit"]
+stream = ExtResource( 20 )
+
+[node name="hit_03" type="AudioStreamPlayer" parent="Bomb/Hit"]
+stream = ExtResource( 18 )
+
 [node name="Enemy" type="Node2D" parent="."]
 
 [node name="Attk_Gen" type="AudioStreamPlayer" parent="Enemy"]
 stream = ExtResource( 9 )
 
 [node name="UI" type="Node2D" parent="."]
-
-[node name="Alert_Gen" type="AudioStreamPlayer" parent="UI"]
-stream = ExtResource( 14 )
 
 [node name="DangerZone" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 11 )
@@ -101,3 +118,32 @@ stream = ExtResource( 13 )
 
 [node name="Win" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 12 )
+
+[node name="Alert_Gen" type="Node2D" parent="UI"]
+script = ExtResource( 15 )
+volume = -10.0
+
+[node name="Alert_Gen" type="AudioStreamPlayer" parent="UI/Alert_Gen"]
+stream = ExtResource( 14 )
+
+[node name="Alert_Gen2" type="AudioStreamPlayer" parent="UI/Alert_Gen"]
+stream = ExtResource( 21 )
+
+[node name="Button" type="Node2D" parent="UI"]
+script = ExtResource( 15 )
+volume = -5.0
+random_volume = true
+min_volume = -4.0
+max_volume = 2.0
+random_pitch = true
+min_pitch = -4.0
+max_pitch = 4.0
+
+[node name="ui_button_menu_01" type="AudioStreamPlayer" parent="UI/Button"]
+stream = ExtResource( 22 )
+
+[node name="ui_button_menu_02" type="AudioStreamPlayer" parent="UI/Button"]
+stream = ExtResource( 24 )
+
+[node name="ui_button_menu_03" type="AudioStreamPlayer" parent="UI/Button"]
+stream = ExtResource( 23 )

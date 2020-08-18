@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ui_kraken_alert_01.ogg-5a79d25ddecb6ba7bfe1a35b8eb95de8.oggstr"
+
+[deps]
+
+source_file="res://assets/audio/ui_kraken_alert_01.ogg"
+dest_files=[ "res://.import/ui_kraken_alert_01.ogg-5a79d25ddecb6ba7bfe1a35b8eb95de8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
