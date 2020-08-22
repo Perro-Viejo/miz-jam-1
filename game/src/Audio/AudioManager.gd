@@ -15,9 +15,11 @@ func _ready():
 	Event.connect('position_amb', self, 'set_amb_position')
 
 
-
 func _get_audio(source, sound) -> Node:
-	return get_node(''+source+'/'+sound)
+	var node_path := '%s/%s' % [source, sound]
+	if has_node(node_path):
+		return get_node(node_path)
+	return null
 
 func play_sound(source: String, sound: String, _position: Vector2 = Vector2(-160, 90)) -> void:
 	var audio: Node = _get_audio(source, sound)
