@@ -11,5 +11,5 @@ dest_files=[ "res://.import/sfx_boat_loop.ogg-2d5e609ff868f52f137795e878d4d167.o
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Characters/Car/Car.gd" type="Script" id=1]
+[ext_resource path="res://assets/resources/sprite_frames/CarA.tres" type="SpriteFrames" id=3]
+
+[node name="Car" type="Node2D"]
+script = ExtResource( 1 )
+car_animations = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.218444, -0.319647 )
+frames = ExtResource( 3 )
+animation = "Idle"

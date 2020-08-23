@@ -11,20 +11,20 @@ func _ready():
 	_player.rotation = initial_angle
 	# Conectarse a eventos del mundo chimpocomón
 	Event.connect('level_lost', self, '_on_lose')
-	Event.emit_signal("play_requested", "MX", "inGame")
 	Event.emit_signal("world_entered")
 
 func on_win():
 	_player.play_splatter(false)
 	Event.emit_signal("stop_requested", "Boat", "Loop")
 	Event.emit_signal("play_requested", "UI", "Win")
-	Event.emit_signal("stop_requested", "MX", "inGame")
 	Event.emit_signal('set_control_active', false)
 	
 	yield(get_tree().create_timer(2), 'timeout')
 	if next_level:
 		Event.emit_signal('ChangeScene', next_level)
 	else:
+		Event.emit_signal("play_requested", "MX", "Win")
+		Event.emit_signal("stop_requested", "MX", "inGame")
 		Event.emit_signal('game_ended')
 
 func _on_lose():

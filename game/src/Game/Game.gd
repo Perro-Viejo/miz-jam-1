@@ -58,7 +58,8 @@ func on_scene_loaded(Loaded)->void:
 	NextScene = Loaded.resource
 	emit_signal("SceneIsLoaded")	#Scene fade signal in case it loads longer than fade out
 
-func change_scene()->void: #handle actual scene change
+func change_scene()->void:
+	 #handle actual scene change
 	if NextScene == null:
 		return
 	yield(get_tree(), "idle_frame") #continue on idle frame
@@ -68,6 +69,8 @@ func change_scene()->void: #handle actual scene change
 	CurrentSceneInstance = CurrentScene.instance()
 	$Levels.add_child(CurrentSceneInstance)
 	Data.set_data(Data.CURRENT_SCENE, CurrentSceneInstance.name)
+	if CurrentSceneInstance.name == 'MainMenu':
+		Event.emit_signal("play_requested", "MX", "Menu")
 
 func restart_scene():
 	if FadeState != IDLE:

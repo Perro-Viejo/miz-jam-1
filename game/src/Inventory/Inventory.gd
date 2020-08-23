@@ -48,7 +48,7 @@ func remove_from_inventory(item) -> bool:
 	return false
 
 func on_item_added(item) -> void:
-	pass
+	Event.emit_signal("item_added", item)
 
 func on_item_removed(item) -> void:
 	pass
