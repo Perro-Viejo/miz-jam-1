@@ -7,6 +7,7 @@ signal newScrollContainerButton
 onready var FocusDetect:Control = Control.new() #Use to detect if no button in focus
 var FocusGroup:Array
 var ButtonsSections:Dictionary = {}
+var previous_focus:Button
 
 func _ready()->void:
 	add_child(FocusDetect) #Without this it can't detect buttons in focus
@@ -37,6 +38,8 @@ func gui_collect_focusgroup()->void:	#Workaround to get initial focus
 	force_focus()
 
 func _unhandled_input(event: InputEvent)->void:
+	FocusDetect.get_focus_owner()
+	
 	if event.is_action_pressed("ui_cancel"):
 		if !Event.MainMenu:			#not in main menu
 			if !Event.Paused:
@@ -46,6 +49,10 @@ func _unhandled_input(event: InputEvent)->void:
 		else:
 			print('gonococo')
 	elif FocusDetect.get_focus_owner() != null:	#There's already button in focus
+		if not previous_focus == FocusDetect.get_focus_owner():
+			Event.emit_signal("play_requested", "UI", "Button")
+			if FocusDetect.get_focus_owner() is Button:
+				previous_focus = FocusDetect.get_focus_owner()
 		return
 	elif event.is_action_pressed("ui_right"):
 		Event.emit_signal("Refocus")
@@ -83,3 +90,4 @@ func force_focus():
 				btn = ButtonsSections.EndingMenu
 	if btn != null:
 		btn.grab_focus()
+		

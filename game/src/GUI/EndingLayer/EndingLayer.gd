@@ -24,6 +24,7 @@ func _show() -> void:
 	guiBrain.force_focus()
 
 func _go_to_main_menu() -> void:
+	Event.emit_signal("stop_requested", "MX", "Win")
 	Event.ended = false
 	$Control.hide()
 	Event.emit_signal("ChangeScene", Data.get_data(Data.MAIN_MENU_SCN))

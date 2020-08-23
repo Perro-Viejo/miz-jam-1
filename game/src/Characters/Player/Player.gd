@@ -25,6 +25,7 @@ var _shake_timer := 0.0
 var is_control_active = true
 
 func _ready() -> void:
+	speak("¡Juimonos!")
 	Event.connect('set_control_active', self, '_set_control_active')
 	Event.connect('player_killed', self, '_explode')
 	play_animation()

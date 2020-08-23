@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/Audio/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/sfx_boat_start.ogg" type="AudioStream" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://assets/audio/ui_button_menu_01.ogg" type="AudioStream" id=22]
 [ext_resource path="res://assets/audio/ui_button_menu_03.ogg" type="AudioStream" id=23]
 [ext_resource path="res://assets/audio/ui_button_menu_02.ogg" type="AudioStream" id=24]
+[ext_resource path="res://assets/audio/mx_win.ogg" type="AudioStream" id=25]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -60,6 +61,10 @@ volume_db = -5.0
 
 [node name="Menu" type="AudioStreamPlayer" parent="MX"]
 stream = ExtResource( 6 )
+
+[node name="Win" type="AudioStreamPlayer" parent="MX"]
+stream = ExtResource( 25 )
+volume_db = -7.0
 
 [node name="Bomb" type="Node2D" parent="."]
 

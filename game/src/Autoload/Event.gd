@@ -40,6 +40,7 @@ signal world_entered
 signal rod_selected(rod)
 signal level_lost
 signal game_ended
+signal item_added(item)
 
 # Cosas de interruptores ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 
 signal switch_on(id)
