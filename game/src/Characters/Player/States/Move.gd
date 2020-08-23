@@ -19,22 +19,24 @@ func _unhandled_input(event):
 			if event.pressed and event.scancode == KEY_UP and just_pressed:
 				dash_pressed += 1
 				
-				if !is_dashing && dash_pressed >= 2:
+				if dash_timer > 0 and dash_pressed >= 2 and !is_dashing:
 					is_dashing = true
 					owner.motion = Vector2(owner.speed*2, 0).rotated(owner.rotation - PI/2)
 					owner.play_splatter()
 					moving = true
 					Event.emit_signal("play_requested", "Boat", "Start")
+				
 
 func _physics_process(delta) -> void:
+	dash_timer -= delta
 	if dash_timer < 0:
-		dash_timer = 0
+		dash_timer = 0.5
 		dash_pressed = 0
 		dashing_time = 0.5
 		is_dashing = false
 		
 	current_time -= delta
-			
+	
 	if owner.is_control_active:
 		if Input.is_action_pressed("Right"):
 			owner.rotation += rotate_speed*delta
