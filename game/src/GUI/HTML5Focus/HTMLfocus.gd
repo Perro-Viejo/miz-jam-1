@@ -8,4 +8,5 @@ func _ready()->void:
 	$Button.show()
 
 func _on_Button_pressed()->void:
+	guiBrain.force_focus()
 	queue_free()

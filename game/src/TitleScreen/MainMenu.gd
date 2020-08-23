@@ -15,6 +15,10 @@ onready var _exit: Button = find_node('Exit')
 onready var _credits: MarginContainer = find_node('Credits')
 onready var _credits_back: Button = _credits.find_node('Back')
 onready var _devs: Label = find_node('Devs')
+# ---- Los del "tutorial" ----
+onready var _to_accelerate: Label = find_node('ToAccelerate')
+onready var _to_turn: Label = find_node('ToTurn')
+onready var _to_turbo: Label = find_node('ToTurbo')
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Funciones ░░░░
 func _ready()->void:
 	Event.MainMenu = true
@@ -34,7 +38,6 @@ func _ready()->void:
 	Settings.connect('ReTranslate', self, 'retranslate') # Localización
 
 	retranslate()
-	
 
 
 func _process(delta):
@@ -85,3 +88,6 @@ func retranslate()->void:
 	_credits_btn.text = tr('CREDITS')
 	_exit.text = tr('EXIT')
 	_credits_back.text = tr('BACK')
+	_to_accelerate.text = tr('TUT_ACCELERATE')
+	_to_turbo.text = tr('TUT_TURBO')
+	_to_turn.text = tr('TUT_TURN')
