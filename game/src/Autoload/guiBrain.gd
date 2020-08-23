@@ -57,7 +57,7 @@ func _unhandled_input(event: InputEvent)->void:
 
 
 func _input(event):
-	if event.is_pressed():
+	if Event.MainMenu and event.is_pressed():
 		Event.emit_signal("play_requested", "UI", "Button")
 
 

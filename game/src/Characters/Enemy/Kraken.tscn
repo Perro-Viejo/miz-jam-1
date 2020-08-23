@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/images/characters/kraken.png" type="Texture" id=1]
+[ext_resource path="res://src/Characters/Enemy/Enemy.tscn" type="PackedScene" id=2]
+
+[node name="Kraken" instance=ExtResource( 2 )]
+sprite = ExtResource( 1 )
+looking_pattern = 1
+
+[node name="Sprite" parent="." index="5"]
+flip_h = true

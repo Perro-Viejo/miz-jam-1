@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/images/characters/mermaid.png" type="Texture" id=1]
+[ext_resource path="res://src/Characters/Enemy/VisibilityPattern/Patterns/T.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Characters/Enemy/Enemy.tscn" type="PackedScene" id=3]
+
+[node name="Mermaid" instance=ExtResource( 3 )]
+default_pattern = ExtResource( 2 )
+sprite = ExtResource( 1 )

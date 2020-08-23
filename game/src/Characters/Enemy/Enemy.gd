@@ -4,11 +4,13 @@ extends Node2D
 
 enum LookingDirection { UP, RIGHT, DOWN, LEFT }
 enum LookingPattern { NONE, RIGHT_LEFT, UP_DOWN, CLOCKWISE }
+
 export var default_pattern: PackedScene
 export var sprite: Texture
 export var time_to_catch := 3 # En segundos
 export var time_to_change := 6
-export(LookingPattern) var looking_pattern := LookingPattern.NONE
+export(LookingDirection) var looking_direction = LookingDirection.RIGHT
+export(LookingPattern) var looking_pattern = LookingPattern.NONE
 export var inverse_looking_pattern := false
 
 var alert_count := 0
@@ -37,30 +39,34 @@ func _ready():
 	# Conectarse a señales de los hijos
 	$Tween.connect('tween_completed', self, '_on_tween_completed')
 	$Timer.connect('timeout', self, '_change_looking_direction')
-	
+
 	if sprite:
 		$Sprite.texture = sprite
+
 	if default_pattern:
 		_dflt_pattern = default_pattern.instance()
-
-		# Establecer posición inicial
-		match looking_pattern:
-			LookingPattern.RIGHT_LEFT:
-				if not inverse_looking_pattern:
-					_dflt_pattern.position = _anchors.e.position
-				else:
-					_dflt_pattern.position = _anchors.w.position
-					$Sprite.flip_h = !$Sprite.flip_h
-					_dflt_pattern.scale.x *= -1
-			LookingPattern.UP_DOWN, LookingPattern.CLOCKWISE:
-				_looking_at = LookingDirection.UP
-				_dflt_pattern.position = _anchors.n.position
-				_dflt_pattern.rotation_degrees = -90
-
-		_dflt_pattern.connect('player_entered', self, '_show_alert')
-		_dflt_pattern.connect('player_left', self, '_hide_alert')
 		$Patterns.add_child(_dflt_pattern)
-	
+	else:
+		_dflt_pattern = $Patterns.get_child(0) as VisibilityPattern
+	_dflt_pattern.connect('player_entered', self, '_show_alert')
+	_dflt_pattern.connect('player_left', self, '_hide_alert')
+
+	# Establecer posición inicial
+	match looking_direction:
+		LookingDirection.RIGHT:
+			_dflt_pattern.position = _anchors.e.position
+		LookingDirection.LEFT:
+			_dflt_pattern.position = _anchors.w.position
+			$Sprite.flip_h = !$Sprite.flip_h
+			_dflt_pattern.scale.x *= -1
+		LookingDirection.UP:
+			_dflt_pattern.position = _anchors.n.position
+			_dflt_pattern.rotation_degrees = -90
+		LookingDirection.DOWN:
+			_dflt_pattern.position = _anchors.s.position
+			_dflt_pattern.rotation_degrees = 90
+	_looking_at = looking_direction
+
 	# Iniciar el temporizador que hará que el enemigo mire pa' otro lado
 	$Timer.start()
 
@@ -123,9 +129,6 @@ func _destroy_player() -> void:
 	if _is_alert:
 		_is_killing = true
 
-		# Quitar el control al jugador
-		Event.emit_signal('set_control_active', false)
-		
 		# Si el jugador no ha dejado las zonas de visión, matar al hijueputa
 		$Tween.interpolate_property(
 			$Sprite, 'global_position',

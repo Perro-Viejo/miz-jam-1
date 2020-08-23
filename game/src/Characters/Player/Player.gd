@@ -93,6 +93,8 @@ func _toggle_control() -> void:
 	$StateMachine.transition_to(STATES.IDLE)
 
 func _explode() -> void:
+	if immortal: return
+	
 	shake_camera()
 	Event.emit_signal("play_requested", "Boat", "Explode")
 	Event.emit_signal("stop_requested", "Boat", "Loop")
