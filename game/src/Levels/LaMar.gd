@@ -12,6 +12,7 @@ func _ready():
 	_player.rotation_degrees = initial_angle
 	
 	Data.set_data(Data.LEVEL_TIME, level_time)
+	Data.set_data(Data.LEVEL_FINISHED, false)
 
 	# Conectarse a eventos del mundo chimpocomón
 	Event.connect('level_lost', self, '_on_lose')
@@ -19,6 +20,9 @@ func _ready():
 
 func on_win():
 	_player.play_splatter(false)
+
+	Data.set_data(Data.LEVEL_FINISHED, true)
+	Event.emit_signal('level_ended')
 	Event.emit_signal("stop_requested", "Boat", "Loop")
 	Event.emit_signal("play_requested", "UI", "Win")
 	Event.emit_signal('set_control_active', false)

@@ -38,6 +38,7 @@ signal intro_shown(msg)
 signal zone_entered(name)
 signal world_entered
 signal rod_selected(rod)
+signal level_ended
 signal level_lost
 signal game_ended
 signal item_added(item)

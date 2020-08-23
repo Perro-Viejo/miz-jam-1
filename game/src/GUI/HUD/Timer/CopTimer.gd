@@ -15,6 +15,7 @@ func _ready():
 	# Conectarse a eventos del universo chimpokomón
 	if not Event.is_connected('player_killed', self, '_stop'):
 		Event.connect('player_killed', self, '_stop')
+		Event.connect('level_ended', self, '_stop')
 
 func start():
 	timer_seconds = Data.get_data(Data.LEVEL_TIME)

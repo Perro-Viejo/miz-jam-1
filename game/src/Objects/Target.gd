@@ -11,6 +11,9 @@ func _ready():
 	$AnimatedSprite.play("Idle")
 	
 func _process(delta):
+	if Data.get_data(Data.LEVEL_FINISHED):
+		started = false
+		visible = false
 	if started: 
 		var player_direction = (player.global_position - global_position).normalized()
 		global_position += player_direction * speed
