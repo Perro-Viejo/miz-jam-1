@@ -128,11 +128,11 @@ region = Rect2( 640, 512, 128, 128 )
 
 [sub_resource type="AtlasTexture" id=31]
 atlas = ExtResource( 5 )
-region = Rect2( 32, 0, 16, 16 )
+region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=32]
 atlas = ExtResource( 5 )
-region = Rect2( 16, 0, 16, 16 )
+region = Rect2( 32, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=33]
 atlas = ExtResource( 5 )
@@ -147,12 +147,12 @@ animations = [ {
 }, {
 "frames": [ SubResource( 31 ) ],
 "loop": true,
-"name": "3",
+"name": "2",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 32 ) ],
 "loop": true,
-"name": "2",
+"name": "3",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 33 ) ],
@@ -191,6 +191,8 @@ position = Vector2( -8, 0 )
 [node name="Alert" type="AnimatedSprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, -15.8271 )
+z_index = 10
+z_as_relative = false
 frames = SubResource( 34 )
 animation = "3"
 

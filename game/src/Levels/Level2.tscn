@@ -10,6 +10,7 @@
 
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
+next_level = "res://src/Levels/Level3.tscn"
 initial_angle = 180
 level_time = 20
 

@@ -18,11 +18,10 @@
 [node name="Level3" type="Node2D"]
 script = ExtResource( 1 )
 initial_angle = 90
-level_time = 40
+level_time = 50
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 160.673, 90.309 )
-immortal = true
 
 [node name="TreasureArea" parent="." instance=ExtResource( 7 )]
 position = Vector2( 513.43, 472 )
@@ -31,7 +30,6 @@ position = Vector2( 513.43, 472 )
 position = Vector2( 32, 48 )
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 0, -0.172882 )
 tile_set = ExtResource( 9 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -109,6 +107,12 @@ position = Vector2( 464.173, 432.173 )
 [node name="Bomb" parent="Bombs/ZoneTreasure" instance=ExtResource( 3 )]
 position = Vector2( 16, 23.827 )
 
+[node name="Bomb6" parent="Bombs/ZoneTreasure" instance=ExtResource( 3 )]
+position = Vector2( -104.173, 31.827 )
+
+[node name="Bomb7" parent="Bombs/ZoneTreasure" instance=ExtResource( 3 )]
+position = Vector2( -104.173, 47.827 )
+
 [node name="Bomb2" parent="Bombs/ZoneTreasure" instance=ExtResource( 3 )]
 position = Vector2( 47.8271, 23.827 )
 
@@ -127,16 +131,19 @@ position = Vector2( 17.2571, 55.827 )
 position = Vector2( 184.173, 8 )
 default_pattern = ExtResource( 10 )
 sprite = ExtResource( 5 )
+time_to_catch = 2
 looking_direction = 2
 
 [node name="Croc2" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 168, 192 )
 default_pattern = ExtResource( 10 )
 sprite = ExtResource( 5 )
+time_to_catch = 2
 looking_direction = 0
 
 [node name="Crab" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 336, 240 )
+time_to_catch = 2
 
 [node name="Checkered" parent="Enemies/Crab/Patterns" index="0"]
 scale = Vector2( -1, 1 )
@@ -153,14 +160,22 @@ position = Vector2( 56, 32 )
 [node name="VisibilityZone15" parent="Enemies/Crab/Patterns/Checkered/Zones" index="11"]
 position = Vector2( 56, 48 )
 
+[node name="Alert" parent="Enemies/Crab" index="4"]
+z_index = 0
+z_as_relative = true
+
 [node name="Sprite" parent="Enemies/Crab" index="5"]
 flip_h = true
 
 [node name="Snake" parent="Enemies" instance=ExtResource( 12 )]
 position = Vector2( 472.173, 440 )
+time_to_catch = 2
 
 [node name="Line" parent="Enemies/Snake/Patterns" index="0"]
 position = Vector2( 8, 0 )
+
+[node name="VisibilityZone4" parent="Enemies/Snake/Patterns/Line/Zones" index="3"]
+position = Vector2( 24, 32 )
 
 [node name="VisibilityZone5" parent="Enemies/Snake/Patterns/Line/Zones" index="4"]
 position = Vector2( 55.8271, 16 )
@@ -177,21 +192,29 @@ position = Vector2( 24, 48 )
 [node name="VisibilityZone9" parent="Enemies/Snake/Patterns/Line/Zones" index="8"]
 position = Vector2( 9.25714, 32 )
 
+[node name="Alert" parent="Enemies/Snake" index="4"]
+z_index = 0
+z_as_relative = true
+
 [node name="Sprite" parent="Enemies/Snake" index="5"]
 texture = ExtResource( 13 )
 
 [node name="Mermaid" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 224, 384 )
+time_to_catch = 2
 
 [node name="Mermaid2" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 320, 384 )
+time_to_catch = 2
 looking_direction = 3
 
 [node name="Mermaid3" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 224, 416.173 )
+time_to_catch = 2
 
 [node name="Mermaid4" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 320, 416.173 )
+time_to_catch = 2
 looking_direction = 3
 
 [node name="Target" parent="." instance=ExtResource( 4 )]
