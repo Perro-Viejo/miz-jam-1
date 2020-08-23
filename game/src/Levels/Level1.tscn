@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/Levels/LaMar.gd" type="Script" id=1]
 [ext_resource path="res://src/Characters/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/images/characters/kraken.png" type="Texture" id=3]
 [ext_resource path="res://src/Characters/Enemy/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Objects/Target.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/Levels/ImportantAreas/TreasureArea.tscn" type="PackedScene" id=7]
 [ext_resource path="res://src/Levels/ImportantAreas/StartArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://assets/tilesets/la_mar.tres" type="TileSet" id=9]
@@ -36,7 +37,7 @@ tile_data = PoolIntArray( 0, 1610612744, 0, 1, 1610612744, 0, 2, 1610612744, 0, 
 [node name="Kraken" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 176, 96 )
 sprite = ExtResource( 3 )
-time_to_catch = 3
 time_to_change = 4
 looking_pattern = 1
-inverse_looking_pattern = false
+
+[node name="Target" parent="." instance=ExtResource( 5 )]

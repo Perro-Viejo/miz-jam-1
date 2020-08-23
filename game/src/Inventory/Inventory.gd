@@ -13,7 +13,6 @@ func _add_item_to_inventory(item) -> bool:
 			_inventory[item.name] = [item]
 		item.container = self
 		_current_size += item.size
-		print(_current_size)
 		on_item_added(item)
 		return true
 	

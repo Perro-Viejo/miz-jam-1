@@ -99,3 +99,5 @@ func toggle_journal() -> void:
 
 func _on_world_entered():
 	world_entered = true
+	$Control.visible = true
+	$Control.get_node("CopTimer").start()

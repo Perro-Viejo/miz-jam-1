@@ -12,6 +12,7 @@ func _ready():
 	# Conectarse a eventos del mundo chimpocomón
 	Event.connect('level_lost', self, '_on_lose')
 	Event.emit_signal("play_requested", "MX", "inGame")
+	Event.emit_signal("world_entered")
 
 func on_win():
 	_player.play_splatter(false)
