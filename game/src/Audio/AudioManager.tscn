@@ -1,10 +1,10 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/Audio/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/sfx_boat_start.ogg" type="AudioStream" id=2]
 [ext_resource path="res://assets/audio/sfx_boat_loop.ogg" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/sfx_boat_stop.ogg" type="AudioStream" id=4]
-[ext_resource path="res://assets/audio/sfx_boat_explode.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/audio/sfx_boat_explode_03.ogg" type="AudioStream" id=5]
 [ext_resource path="res://assets/audio/mx_menu.ogg" type="AudioStream" id=6]
 [ext_resource path="res://assets/audio/mx_inGame.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/audio/sfx_bomb_activate.ogg" type="AudioStream" id=8]
@@ -25,6 +25,8 @@
 [ext_resource path="res://assets/audio/ui_button_menu_03.ogg" type="AudioStream" id=23]
 [ext_resource path="res://assets/audio/ui_button_menu_02.ogg" type="AudioStream" id=24]
 [ext_resource path="res://assets/audio/mx_win.ogg" type="AudioStream" id=25]
+[ext_resource path="res://assets/audio/sfx_boat_explode_01.ogg" type="AudioStream" id=26]
+[ext_resource path="res://assets/audio/sfx_boat_explode_02.ogg" type="AudioStream" id=27]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -46,7 +48,24 @@ stream = ExtResource( 4 )
 volume_db = -16.0
 pitch_scale = 1.4
 
-[node name="Explode" type="AudioStreamPlayer" parent="Boat"]
+[node name="Explode" type="Node2D" parent="Boat"]
+script = ExtResource( 15 )
+random_volume = true
+min_volume = -2.0
+max_volume = 2.0
+random_pitch = true
+min_pitch = -3.0
+max_pitch = 4.0
+
+[node name="sfx_boat_explode_01" type="AudioStreamPlayer" parent="Boat/Explode"]
+stream = ExtResource( 26 )
+volume_db = -6.0
+
+[node name="sfx_boat_explode_02" type="AudioStreamPlayer" parent="Boat/Explode"]
+stream = ExtResource( 27 )
+volume_db = -6.0
+
+[node name="sfx_boat_explode_03" type="AudioStreamPlayer" parent="Boat/Explode"]
 stream = ExtResource( 5 )
 volume_db = -6.0
 
