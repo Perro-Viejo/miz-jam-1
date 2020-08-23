@@ -136,7 +136,7 @@ stream = ExtResource( 21 )
 
 [node name="Button" type="Node2D" parent="UI"]
 script = ExtResource( 15 )
-volume = -5.0
+volume = -10.0
 random_volume = true
 min_volume = -4.0
 max_volume = 2.0
@@ -146,9 +146,12 @@ max_pitch = 4.0
 
 [node name="ui_button_menu_01" type="AudioStreamPlayer" parent="UI/Button"]
 stream = ExtResource( 22 )
+pitch_scale = 5.0
 
 [node name="ui_button_menu_02" type="AudioStreamPlayer" parent="UI/Button"]
 stream = ExtResource( 24 )
+pitch_scale = 5.0
 
 [node name="ui_button_menu_03" type="AudioStreamPlayer" parent="UI/Button"]
 stream = ExtResource( 23 )
+pitch_scale = 5.0
