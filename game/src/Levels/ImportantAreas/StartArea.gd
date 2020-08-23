@@ -8,5 +8,5 @@ func _on_body_entered(body: Node) -> void:
 	if body.name != 'Player':
 		return
 	
-	if body.get_node("./Inventory").get_current_size() > 0:
+	if "key" in body.get_node("./Inventory")._inventory:
 		owner.on_win()

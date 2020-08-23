@@ -8,7 +8,7 @@ func ready():
 func _on_body_entered(body: Node) -> void:
 	if body.name != 'Player':
 		return
-		
+	
 	if has_node("Treasure"):
 		var inventory = body.get_node("./Inventory")
 		var treasure = get_node("./Treasure")
