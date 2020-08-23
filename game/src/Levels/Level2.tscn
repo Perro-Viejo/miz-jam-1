@@ -11,6 +11,7 @@
 [node name="Level2" type="Node2D"]
 script = ExtResource( 1 )
 initial_angle = 180
+level_time = 20
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 160.673, 90.309 )
@@ -51,4 +52,3 @@ position = Vector2( 176, 118.397 )
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Target" parent="." instance=ExtResource( 4 )]
-speed = 1

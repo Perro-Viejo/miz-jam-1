@@ -149,34 +149,41 @@ z_index = 1
 
 [node name="Car" parent="World/Cars" instance=ExtResource( 6 )]
 position = Vector2( 64, 16 )
+shake_amount = 0.4
 
 [node name="Car2" parent="World/Cars" instance=ExtResource( 6 )]
 position = Vector2( 104, 32 )
 scale = Vector2( -1, 1 )
 car_animations = ExtResource( 7 )
+shake_amount = 0.4
 
 [node name="Car3" parent="World/Cars" instance=ExtResource( 6 )]
 position = Vector2( 64, 40 )
 car_animations = ExtResource( 8 )
+shake_amount = 0.4
 
 [node name="Car4" parent="World/Cars" instance=ExtResource( 6 )]
 position = Vector2( 144, 22.5774 )
 scale = Vector2( -1, 1 )
 car_animations = ExtResource( 10 )
+shake_amount = 0.4
 
 [node name="Car5" parent="World/Cars" instance=ExtResource( 6 )]
 position = Vector2( 136, 48 )
 scale = Vector2( -1, 1 )
 car_animations = ExtResource( 11 )
+shake_amount = 0.4
 
 [node name="Car6" parent="World/Cars" instance=ExtResource( 6 )]
 position = Vector2( 22.6756, 24 )
 scale = Vector2( -1, 1 )
 car_animations = ExtResource( 12 )
+shake_amount = 0.4
 
 [node name="Car7" parent="World/Cars" instance=ExtResource( 6 )]
 position = Vector2( 16, 0 )
 car_animations = ExtResource( 13 )
+shake_amount = 0.4
 
 [node name="ShipGround" type="Sprite" parent="World"]
 position = Vector2( 136, 152 )
@@ -254,6 +261,8 @@ custom_constants/separation = 2
 ] instance=ExtResource( 3 )]
 margin_right = 52.0
 margin_bottom = 11.0
+focus_neighbour_top = NodePath("../Exit")
+focus_previous = NodePath("../Exit")
 size_flags_horizontal = 0
 text = "Nuevo juego"
 align = 0
@@ -277,6 +286,8 @@ align = 0
 margin_top = 39.0
 margin_right = 18.0
 margin_bottom = 50.0
+focus_neighbour_bottom = NodePath("../NewGame")
+focus_next = NodePath("../NewGame")
 size_flags_horizontal = 0
 text = "Salir"
 align = 0

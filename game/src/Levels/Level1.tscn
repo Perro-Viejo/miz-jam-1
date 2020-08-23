@@ -13,6 +13,7 @@
 script = ExtResource( 1 )
 initial_angle = 90
 next_level = "res://src/Levels/Level2.tscn"
+level_time = 12
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 160.673, 90.309 )
@@ -37,7 +38,9 @@ tile_data = PoolIntArray( 0, 1610612744, 0, 1, 1610612744, 0, 2, 1610612744, 0, 
 [node name="Kraken" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 176, 96 )
 sprite = ExtResource( 3 )
+time_to_catch = 3
 time_to_change = 4
 looking_pattern = 1
+inverse_looking_pattern = false
 
 [node name="Target" parent="." instance=ExtResource( 5 )]

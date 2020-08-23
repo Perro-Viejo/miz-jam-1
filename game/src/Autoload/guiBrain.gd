@@ -38,21 +38,13 @@ func gui_collect_focusgroup()->void:	#Workaround to get initial focus
 	force_focus()
 
 func _unhandled_input(event: InputEvent)->void:
-	FocusDetect.get_focus_owner()
-	
 	if event.is_action_pressed("ui_cancel"):
 		if !Event.MainMenu:			#not in main menu
 			if !Event.Paused:
 				Event.Paused = true
 			elif !Event.Options:
 				Event.Paused = false
-		else:
-			print('gonococo')
-	elif FocusDetect.get_focus_owner() != null:	#There's already button in focus
-		if not previous_focus == FocusDetect.get_focus_owner():
-			Event.emit_signal("play_requested", "UI", "Button")
-			if FocusDetect.get_focus_owner() is Button:
-				previous_focus = FocusDetect.get_focus_owner()
+	elif FocusDetect.get_focus_owner() != null:	# There's already button in focus
 		return
 	elif event.is_action_pressed("ui_right"):
 		Event.emit_signal("Refocus")
@@ -62,6 +54,12 @@ func _unhandled_input(event: InputEvent)->void:
 		Event.emit_signal("Refocus")
 	elif event.is_action_pressed("ui_down"):
 		Event.emit_signal("Refocus")
+
+
+func _input(event):
+	if event.is_pressed():
+		Event.emit_signal("play_requested", "UI", "Button")
+
 
 func force_focus():
 	var btn:Button

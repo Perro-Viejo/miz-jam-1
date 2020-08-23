@@ -5,10 +5,14 @@ onready var _start_area = $StartArea
 
 export (int)var initial_angle = PI/4
 export (String, FILE, '*.tscn') var next_level: String
+export var level_time := 10
 
 func _ready():
 	_player.global_position = _start_area.get_node("./PlayerStartPosition").global_position
 	_player.rotation = initial_angle
+	
+	Data.set_data(Data.LEVEL_TIME, level_time)
+
 	# Conectarse a eventos del mundo chimpocomón
 	Event.connect('level_lost', self, '_on_lose')
 	Event.emit_signal("world_entered")

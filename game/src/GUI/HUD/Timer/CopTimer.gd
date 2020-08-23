@@ -9,6 +9,7 @@ func _ready():
 	$Cop.get_node("AnimatedSprite").play("default")
 	
 func start():
+	timer_seconds = Data.get_data(Data.LEVEL_TIME)
 	_tween.connect("tween_completed", self, "timeout")
 	_tween.interpolate_property(
 		$Cop, 
