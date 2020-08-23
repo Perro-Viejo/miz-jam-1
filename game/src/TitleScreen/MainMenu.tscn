@@ -125,6 +125,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ 160.218 ]
 }
 First_Level = "res://src/Levels/Level1.tscn"
+show_intro = false
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )

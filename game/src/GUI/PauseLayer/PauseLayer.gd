@@ -8,8 +8,7 @@ func _ready()->void:
 	Event.connect("Paused", self, "on_show_paused")
 	Event.connect("Options", self, "on_show_options")
 	Event.Paused = false
-	#localization
-	Settings.connect("ReTranslate", self, "retranslate")
+	Settings.connect("ReTranslate", self, "retranslate") # Localización
 
 func on_show_paused(value:bool)->void:
 	#Signals allow each module have it's own response logic

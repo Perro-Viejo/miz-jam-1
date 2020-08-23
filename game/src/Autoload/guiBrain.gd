@@ -30,6 +30,8 @@ func gui_collect_focusgroup()->void:	#Workaround to get initial focus
 			ButtonsSections["OptionsControls"] = btn
 		if groups.has("DialogMenu"):
 			ButtonsSections["DialogMenu"] = btn
+		if groups.has('EndingMenu'):
+			ButtonsSections['EndingMenu'] = btn
 	# Para que por defecto se seleccione la primera opción de cualquier menú que
 	# se abra por aquí
 	force_focus()
@@ -77,5 +79,7 @@ func force_focus():
 				btn = ButtonsSections.Pause
 			elif Event.dialog:
 				btn = ButtonsSections.DialogMenu
+			elif Event.ended:
+				btn = ButtonsSections.EndingMenu
 	if btn != null:
 		btn.grab_focus()

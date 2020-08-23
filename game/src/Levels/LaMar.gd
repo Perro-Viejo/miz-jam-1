@@ -24,7 +24,7 @@ func on_win():
 	if next_level:
 		Event.emit_signal('ChangeScene', next_level)
 	else:
-		Event.emit_signal("ChangeScene", Data.get_data(Data.MAIN_MENU_SCN))
+		Event.emit_signal('game_ended')
 
 func _on_lose():
 	Event.emit_signal("Restart")

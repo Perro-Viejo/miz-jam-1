@@ -35,6 +35,9 @@ custom_constants/margin_right = 60
 custom_constants/margin_top = 30
 custom_constants/margin_left = 60
 custom_constants/margin_bottom = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="Control/MarginContainer"]
 margin_left = 60.0
@@ -63,32 +66,37 @@ custom_constants/separation = 1
 "FocusGroup",
 "Pause",
 ] instance=ExtResource( 2 )]
-margin_right = 168.0
-margin_bottom = 14.0
+margin_left = 68.0
+margin_right = 99.0
+margin_bottom = 11.0
 text = "Resume"
 
 [node name="Restart" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 15.0
-margin_right = 168.0
-margin_bottom = 29.0
+margin_left = 68.0
+margin_top = 12.0
+margin_right = 100.0
+margin_bottom = 23.0
 text = "Restart"
 
 [node name="Options" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 30.0
-margin_right = 168.0
-margin_bottom = 44.0
+margin_left = 68.0
+margin_top = 24.0
+margin_right = 99.0
+margin_bottom = 35.0
 text = "Options"
 
 [node name="MainMenu" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 45.0
-margin_right = 168.0
-margin_bottom = 59.0
+margin_left = 62.0
+margin_top = 36.0
+margin_right = 105.0
+margin_bottom = 47.0
 text = "Main Menu"
 
 [node name="Exit" parent="Control/MarginContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 60.0
-margin_right = 168.0
-margin_bottom = 74.0
+margin_left = 76.0
+margin_top = 48.0
+margin_right = 92.0
+margin_bottom = 59.0
 text = "Exit"
 [connection signal="pressed" from="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/Panel/MarginContainer/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
