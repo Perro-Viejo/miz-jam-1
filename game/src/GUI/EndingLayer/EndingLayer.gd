@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var _text_wave := '\n[center][wave amp=70 freq=4]%s[/wave][/center]'
+var _text_wave := '\n[right][wave amp=70 freq=4]%s[/wave][/right]'
 var _win_text := ''
 
 onready var _main_menu_btn: Button = find_node('GoToMainMenu')

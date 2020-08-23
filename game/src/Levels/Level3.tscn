@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/Levels/LaMar.gd" type="Script" id=1]
 [ext_resource path="res://src/Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -14,7 +14,102 @@
 [ext_resource path="res://src/Characters/Enemy/Snake.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/images/characters/snake.png" type="Texture" id=13]
 [ext_resource path="res://src/Characters/Enemy/Mermaid.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/Characters/Cars.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/Characters/Enemy/Kraken.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/Characters/JumpingBoat/JumpingBoat.tscn" type="PackedScene" id=17]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("JumpingBoat:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.79397e-07, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "GoParty"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("JumpingBoat:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("JumpingBoat:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.6, 3.8, 4.3, 4.5, 5 ),
+"transitions": PoolRealArray( 4.28709, 1, 0.5, 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 32 ), Vector2( 8, -248 ), Vector2( 8, -248 ), Vector2( -24, -248 ), Vector2( -24, -248 ), Vector2( -24, -264 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("JumpingBoat:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("JumpingBoat")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "jump"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("JumpingBoat:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="Level3" type="Node2D"]
 script = ExtResource( 1 )
@@ -22,6 +117,7 @@ initial_angle = 90
 level_time = 60
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 1 )
 position = Vector2( 160.673, 90.309 )
 
 [node name="TreasureArea" parent="." instance=ExtResource( 7 )]
@@ -129,6 +225,9 @@ position = Vector2( -104.173, 47.827 )
 [node name="Bomb8" parent="Bombs/ZoneTreasure" instance=ExtResource( 3 )]
 position = Vector2( -192.173, 47.827 )
 
+[node name="Bomb9" parent="Bombs/ZoneTreasure" instance=ExtResource( 3 )]
+position = Vector2( -160.173, 62.224 )
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Croc" parent="Enemies" instance=ExtResource( 6 )]
@@ -225,6 +324,18 @@ position = Vector2( 328, 496 )
 time_to_catch = 2
 
 [node name="Target" parent="." instance=ExtResource( 4 )]
+
+[node name="Cars" parent="." instance=ExtResource( 15 )]
+position = Vector2( -120, -255.304 )
+
+[node name="JumpingBoat" parent="." instance=ExtResource( 17 )]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 8, 32 )
+scale = Vector2( -1, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Appear = SubResource( 2 )
+anims/GoParty = SubResource( 1 )
 
 [editable path="Enemies/Crab"]
 

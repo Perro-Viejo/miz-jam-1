@@ -52,12 +52,13 @@ custom_constants/separation = 16
 margin_top = 20.0
 margin_right = 256.0
 margin_bottom = 66.0
+size_flags_horizontal = 11
 size_flags_vertical = 7
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0.278431, 0.176471, 0.235294, 1 )
 bbcode_enabled = true
 bbcode_text = "
-[center][wave amp=70 freq=4]You winner the gaem![/wave][/center]"
+[right][wave amp=70 freq=4]You winner the gaem![/wave][/right]"
 text = "
 You winner the gaem!"
 scroll_active = false
@@ -66,9 +67,10 @@ scroll_active = false
 "EndingMenu",
 "FocusGroup",
 ] instance=ExtResource( 2 )]
-margin_left = 104.0
+margin_left = 209.0
 margin_top = 70.0
-margin_right = 151.0
+margin_right = 256.0
 margin_bottom = 81.0
+size_flags_horizontal = 10
 size_flags_vertical = 2
 text = "MAIN_MENU"

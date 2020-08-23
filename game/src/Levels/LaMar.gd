@@ -25,12 +25,18 @@ func on_win():
 	Event.emit_signal('level_ended')
 	Event.emit_signal("stop_requested", "Boat", "Loop")
 	Event.emit_signal("play_requested", "UI", "Win")
-	Event.emit_signal('set_control_active', false)
-	
+
 	yield(get_tree().create_timer(2), 'timeout')
 	if next_level:
 		Event.emit_signal('ChangeScene', next_level)
 	else:
+		Event.emit_signal('set_control_active', false)
+		$Player/Camera2D.current = false
+		$JumpingBoat/Camera2D.current = true
+		$AnimationPlayer.play('Appear')
+		yield($AnimationPlayer, 'animation_finished')
+		$AnimationPlayer.play('GoParty')
+		yield($AnimationPlayer, 'animation_finished')
 		Event.emit_signal("play_requested", "MX", "Win")
 		Event.emit_signal("stop_requested", "MX", "inGame")
 		Event.emit_signal('game_ended')

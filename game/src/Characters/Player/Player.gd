@@ -51,6 +51,7 @@ func change_zoom(out: bool = true) -> void:
 	yield($Tween, 'tween_completed')
 	
 func _physics_process(delta):
+	if not is_control_active: return
 	motion = move_and_slide(motion)
 	if _is_camera_shaking:
 		_shake_timer -= delta

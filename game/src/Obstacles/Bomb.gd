@@ -21,7 +21,6 @@ func _on_body_entered(area):
 		Event.emit_signal("play_requested", "Bomb", "Activate")
 
 func _on_animation_finished():
-	
 	if $AnimatedSprite.animation == "Twinkle":
 		var particle = SPLASH.instance()
 		get_parent().add_child(particle)
