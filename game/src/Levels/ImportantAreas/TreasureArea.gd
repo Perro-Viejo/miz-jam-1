@@ -1,9 +1,9 @@
 extends Area2D
 
+export(String, "key", "meat", "cheese", "guarapo", "tequimon", "map") var selected_item 
 
 func ready():
 	connect('body_entered', self, '_on_body_entered')
-
 
 func _on_body_entered(body: Node) -> void:
 	if body.name != 'Player':

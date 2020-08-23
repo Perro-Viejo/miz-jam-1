@@ -25,13 +25,20 @@ func start():
 		$StartPoint.global_position.x, 
 		$EndPoint.global_position.x, 
 		timer_seconds)
-	_tween.start()
 	_ready()
+	Event.emit_signal("play_requested", "UI", "Car_Start")
+	yield(get_tree().create_timer(.7), 'timeout')
+	Event.emit_signal("play_requested", "UI", "Car_Loop")
+	_tween.start()
+	
 
 
 func timeout(obj, key):
+	Event.emit_signal("play_requested", "UI", "Kill_Alert")
+	Event.emit_signal("stop_requested", "UI", "Car_Loop")
 	Event.emit_signal("target_deployed", $EndPoint)
 
 
 func _stop() -> void:
 	_tween.remove_all()
+

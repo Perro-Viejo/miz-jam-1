@@ -722,4 +722,4 @@ wait_time = 0.4
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource( 5 )
-max_size = 3
+max_size = 20

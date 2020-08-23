@@ -16,5 +16,4 @@ shape = SubResource( 1 )
 [node name="Treasure" type="Node" parent="."]
 script = ExtResource( 2 )
 size = 2
-item_name = "key"
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
