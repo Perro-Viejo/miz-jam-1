@@ -65,7 +65,6 @@ func _on_Credits_pressed() -> void:
 	if _is_credits:
 		$AnimationPlayer.play('show_credits')
 	else:
-		return Event.emit_signal('game_ended')
 		$AnimationPlayer.play('credits_exit')
 	yield($AnimationPlayer, 'animation_finished')
 	if _is_credits:
