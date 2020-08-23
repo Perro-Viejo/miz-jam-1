@@ -14,6 +14,7 @@ func _process(delta):
 	if Data.get_data(Data.LEVEL_FINISHED):
 		started = false
 		visible = false
+		Event.emit_signal("stop_requested", "UI", "Scope")
 	if started: 
 		var player_direction = (player.global_position - global_position).normalized()
 		global_position += player_direction * speed
@@ -27,6 +28,7 @@ func _process(delta):
 				shot = true
 
 func _on_target_deployed(start_position):
+	Event.emit_signal("play_requested", "UI", "Scope")
 	visible = true
 	started = true
 	global_position = Utils.get_screen_coords_for(start_position)
@@ -35,3 +37,4 @@ func _on_target_deployed(start_position):
 func _on_Timer_timeout():
 	print("player dieeee")
 	Event.emit_signal("player_killed")
+	Event.emit_signal("stop_requested", "UI", "Scope")

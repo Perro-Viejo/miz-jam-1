@@ -25,6 +25,7 @@ position = Vector2( 160.673, 90.309 )
 
 [node name="TreasureArea" parent="." instance=ExtResource( 7 )]
 position = Vector2( 513.43, 472 )
+selected_item = "key"
 
 [node name="StartArea" parent="." instance=ExtResource( 8 )]
 position = Vector2( 32, 48 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/Audio/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/sfx_boat_start.ogg" type="AudioStream" id=2]
@@ -27,8 +27,12 @@
 [ext_resource path="res://assets/audio/mx_win.ogg" type="AudioStream" id=25]
 [ext_resource path="res://assets/audio/sfx_boat_explode_01.ogg" type="AudioStream" id=26]
 [ext_resource path="res://assets/audio/sfx_boat_explode_02.ogg" type="AudioStream" id=27]
-[ext_resource path="res://assets/audio/ui_number_03.ogg" type="AudioStream" id=29]
 [ext_resource path="res://assets/audio/ui_number_01.ogg" type="AudioStream" id=28]
+[ext_resource path="res://assets/audio/ui_number_03.ogg" type="AudioStream" id=29]
+[ext_resource path="res://assets/audio/ui_scope.ogg" type="AudioStream" id=30]
+[ext_resource path="res://assets/audio/ui_kill_alert.ogg" type="AudioStream" id=31]
+[ext_resource path="res://assets/audio/ui_car_start.ogg" type="AudioStream" id=32]
+[ext_resource path="res://assets/audio/ui_car_loop.ogg" type="AudioStream" id=33]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -162,6 +166,8 @@ volume_db = -7.0
 
 [node name="Win" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 12 )
+volume_db = -6.0
+pitch_scale = 1.2
 
 [node name="Alert_Gen" type="Node2D" parent="UI"]
 script = ExtResource( 15 )
@@ -194,3 +200,19 @@ pitch_scale = 5.0
 [node name="ui_button_menu_03" type="AudioStreamPlayer" parent="UI/Button"]
 stream = ExtResource( 23 )
 pitch_scale = 5.0
+
+[node name="Kill_Alert" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 31 )
+
+[node name="Scope" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 30 )
+
+[node name="Car_Start" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 32 )
+volume_db = -20.0
+pitch_scale = 1.3
+
+[node name="Car_Loop" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 33 )
+volume_db = -20.0
+pitch_scale = 1.3

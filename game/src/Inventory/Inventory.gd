@@ -15,7 +15,6 @@ func _add_item_to_inventory(item) -> bool:
 		_current_size += item.size
 		on_item_added(item)
 		return true
-	
 	return false
 
 func add_to_inventory(item) -> bool:
