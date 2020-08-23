@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://src/Audio/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/sfx_boat_start.ogg" type="AudioStream" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://assets/audio/sfx_grab.ogg" type="AudioStream" id=10]
 [ext_resource path="res://assets/audio/ui_dangerzone.ogg" type="AudioStream" id=11]
 [ext_resource path="res://assets/audio/ui_win.ogg" type="AudioStream" id=12]
-[ext_resource path="res://assets/audio/ui_number.ogg" type="AudioStream" id=13]
+[ext_resource path="res://assets/audio/ui_number_02.ogg" type="AudioStream" id=13]
 [ext_resource path="res://assets/audio/ui_kraken_alert_01.ogg" type="AudioStream" id=14]
 [ext_resource path="res://src/Audio/RandomTool.gd" type="Script" id=15]
 [ext_resource path="res://assets/audio/sfx_bomb_explode_02.ogg" type="AudioStream" id=16]
@@ -27,6 +27,8 @@
 [ext_resource path="res://assets/audio/mx_win.ogg" type="AudioStream" id=25]
 [ext_resource path="res://assets/audio/sfx_boat_explode_01.ogg" type="AudioStream" id=26]
 [ext_resource path="res://assets/audio/sfx_boat_explode_02.ogg" type="AudioStream" id=27]
+[ext_resource path="res://assets/audio/ui_number_03.ogg" type="AudioStream" id=29]
+[ext_resource path="res://assets/audio/ui_number_01.ogg" type="AudioStream" id=28]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -137,8 +139,26 @@ stream = ExtResource( 9 )
 stream = ExtResource( 11 )
 volume_db = -8.0
 
-[node name="Number" type="AudioStreamPlayer" parent="UI"]
+[node name="Number" type="Node2D" parent="UI"]
+script = ExtResource( 15 )
+random_volume = true
+min_volume = -2.0
+max_volume = 1.0
+random_pitch = true
+min_pitch = -3.0
+max_pitch = 3.0
+
+[node name="ui_number_01" type="AudioStreamPlayer" parent="UI/Number"]
+stream = ExtResource( 28 )
+volume_db = -7.0
+
+[node name="ui_number_02" type="AudioStreamPlayer" parent="UI/Number"]
 stream = ExtResource( 13 )
+volume_db = -7.0
+
+[node name="ui_number_03" type="AudioStreamPlayer" parent="UI/Number"]
+stream = ExtResource( 29 )
+volume_db = -7.0
 
 [node name="Win" type="AudioStreamPlayer" parent="UI"]
 stream = ExtResource( 12 )
