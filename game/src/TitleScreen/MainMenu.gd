@@ -19,6 +19,7 @@ onready var _devs: Label = find_node('Devs')
 onready var _to_accelerate: Label = find_node('ToAccelerate')
 onready var _to_turn: Label = find_node('ToTurn')
 onready var _to_turbo: Label = find_node('ToTurbo')
+onready var _goal: Label = find_node('Goal')
 # ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ Funciones ░░░░
 func _ready()->void:
 	Event.MainMenu = true
@@ -91,3 +92,4 @@ func retranslate()->void:
 	_to_accelerate.text = tr('TUT_ACCELERATE')
 	_to_turbo.text = tr('TUT_TURBO')
 	_to_turn.text = tr('TUT_TURN')
+	_goal.text = tr('TUT_GOAL')
