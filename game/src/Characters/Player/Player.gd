@@ -13,8 +13,14 @@ onready var sprite: AnimatedSprite = $AnimatedSprite
 export(float) var speed = 30
 export(float) var acceleration = 0.05
 export(float) var deceleration = 0.01
+export(float) var camera_shake_time
+export(bool) var can_shake_camera = true
+
 var motion = Vector2.ZERO
 var velocity = Vector2.ZERO
+var _is_camera_shaking := false
+var _camera_shake_amount := 15.0
+var _shake_timer := 0.0
 
 var is_control_active = true
 
@@ -45,12 +51,26 @@ func change_zoom(out: bool = true) -> void:
 	
 func _physics_process(delta):
 	motion = move_and_slide(motion)
+	if _is_camera_shaking:
+		_shake_timer -= delta
+		$Camera2D.offset = Vector2(
+			rand_range(-1.0, 1.0) * _camera_shake_amount,
+			rand_range(-1.0, 1.0) * _camera_shake_amount
+		)
+
+		if _shake_timer <= 0.0:
+			_is_camera_shaking = false
+			$Camera2D.offset = Vector2.ZERO
 
 func play_animation(state: String = '') -> void:
 	match state:
 		_:
 			sprite.play('Idle')
 
+func shake_camera() -> void:
+	if not can_shake_camera: return
+	_shake_timer = camera_shake_time
+	_is_camera_shaking = true
 
 func play_fs(id):
 	Event.emit_signal('play_requested', "Player", id)
@@ -72,6 +92,7 @@ func _toggle_control() -> void:
 	$StateMachine.transition_to(STATES.IDLE)
 
 func _explode() -> void:
+	shake_camera()
 	Event.emit_signal("play_requested", "Boat", "Explode")
 	Event.emit_signal("stop_requested", "Boat", "Loop")
 	play_splatter(false)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Particles/BombSplashParticle.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+max_value = 5.0
+_data = [ Vector2( 0, 1.55682 ), 0.0, -1.79186, 0, 0, Vector2( 0.519359, 1.17614 ), 0.0, 0.0, 0, 0, Vector2( 0.998665, 0.585227 ), -1.89141, 0.0, 0, 0 ]
+
+[node name="BombSplashParticle" type="CPUParticles2D"]
+position = Vector2( 257.387, 87.6812 )
+emitting = false
+amount = 22
+lifetime = 1.3
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.8
+randomness = 0.86
+emission_shape = 4
+emission_points = PoolVector2Array( 0, 0, 1, 0, 0, 0, -1, 0 )
+emission_normals = PoolVector2Array( 10, -50, 3, -55, -10, -50, -3, -55 )
+emission_colors = PoolColorArray(  )
+scale_amount_curve = SubResource( 1 )
+color = Color( 0.811765, 0.776471, 0.721569, 1 )
+script = ExtResource( 1 )
