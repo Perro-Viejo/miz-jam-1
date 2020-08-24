@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://src/Audio/AudioManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/audio/sfx_boat_start.ogg" type="AudioStream" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://assets/audio/ui_car_start.ogg" type="AudioStream" id=32]
 [ext_resource path="res://assets/audio/ui_car_loop.ogg" type="AudioStream" id=33]
 [ext_resource path="res://assets/audio/ui_car_siren.ogg" type="AudioStream" id=34]
+[ext_resource path="res://assets/audio/sfx_secuencia_final.ogg" type="AudioStream" id=35]
 
 [node name="AudioManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -83,6 +84,9 @@ volume_db = -6.0
 
 [node name="Grab" type="AudioStreamPlayer" parent="Boat"]
 stream = ExtResource( 10 )
+
+[node name="End" type="AudioStreamPlayer" parent="Boat"]
+stream = ExtResource( 35 )
 
 [node name="MX" type="Node2D" parent="."]
 

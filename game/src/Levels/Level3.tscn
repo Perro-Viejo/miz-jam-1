@@ -235,18 +235,28 @@ position = Vector2( 184.173, 8 )
 default_pattern = ExtResource( 10 )
 sprite = ExtResource( 5 )
 time_to_catch = 2
+time_to_change = 6
 looking_direction = 2
+looking_pattern = 0
+inverse_looking_pattern = false
 
 [node name="Croc2" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 168, 192 )
 default_pattern = ExtResource( 10 )
 sprite = ExtResource( 5 )
 time_to_catch = 2
+time_to_change = 6
 looking_direction = 0
+looking_pattern = 0
+inverse_looking_pattern = false
 
 [node name="Crab" parent="Enemies" instance=ExtResource( 11 )]
 position = Vector2( 336, 240 )
 time_to_catch = 2
+time_to_change = 6
+looking_direction = 1
+looking_pattern = 0
+inverse_looking_pattern = false
 
 [node name="Checkered" parent="Enemies/Crab/Patterns" index="0"]
 scale = Vector2( -1, 1 )
@@ -272,6 +282,11 @@ flip_h = true
 
 [node name="Snake" parent="Enemies" instance=ExtResource( 12 )]
 position = Vector2( 472.173, 440 )
+time_to_catch = 3
+time_to_change = 6
+looking_direction = 1
+looking_pattern = 0
+inverse_looking_pattern = false
 
 [node name="Line" parent="Enemies/Snake/Patterns" index="0"]
 position = Vector2( 8, 0 )
@@ -304,24 +319,41 @@ texture = ExtResource( 13 )
 [node name="Mermaid" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 224, 384 )
 time_to_catch = 2
+time_to_change = 6
+looking_direction = 1
+looking_pattern = 0
+inverse_looking_pattern = false
 
 [node name="Mermaid2" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 320, 384 )
 time_to_catch = 2
+time_to_change = 6
 looking_direction = 3
+looking_pattern = 0
+inverse_looking_pattern = false
 
 [node name="Mermaid3" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 224, 416.173 )
 time_to_catch = 2
+time_to_change = 6
+looking_direction = 1
+looking_pattern = 0
+inverse_looking_pattern = false
 
 [node name="Mermaid4" parent="Enemies" instance=ExtResource( 14 )]
 position = Vector2( 320, 416.173 )
 time_to_catch = 2
+time_to_change = 6
 looking_direction = 3
+looking_pattern = 0
+inverse_looking_pattern = false
 
 [node name="Kraken" parent="Enemies" instance=ExtResource( 16 )]
 position = Vector2( 328, 496 )
 time_to_catch = 2
+time_to_change = 6
+looking_pattern = 0
+inverse_looking_pattern = false
 
 [node name="Target" parent="." instance=ExtResource( 4 )]
 

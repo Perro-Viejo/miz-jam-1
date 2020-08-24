@@ -30,6 +30,7 @@ func on_win():
 	if next_level:
 		Event.emit_signal('ChangeScene', next_level)
 	else:
+		Event.emit_signal('play_requested', 'Boat', 'End')
 		Event.emit_signal('set_control_active', false)
 		$Player/Camera2D.current = false
 		$JumpingBoat/Camera2D.current = true
