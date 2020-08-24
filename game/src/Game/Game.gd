@@ -50,6 +50,7 @@ func on_ChangeScene(scene):
 
 	$FadeLayer/FadeTween.interpolate_property($FadeLayer, "percent", 0.0, 1.0, transition_duration, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.0)
 	$FadeLayer/FadeTween.start()
+	Event.emit_signal("play_requested", "UI", "Transition_Up")
 
 func on_Exit()->void:
 	if FadeState != IDLE:
@@ -92,6 +93,7 @@ func _on_FadeTween_tween_completed(object, key)->void:
 				yield(self, "SceneIsLoaded")
 			change_scene()
 			FadeState = FADEIN
+			Event.emit_signal("play_requested", "UI", "Transition_Down")
 			$FadeLayer/FadeTween.interpolate_property($FadeLayer, "percent", 1.0, 0.0, transition_duration * 0.4, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.0)
 			$FadeLayer/FadeTween.start()
 		FADEIN:
