@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/GUI/FadeLayer/Fade_layer.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/gui/water_transition.png" type="Texture" id=2]
 
 [node name="Fade_layer" type="CanvasLayer"]
 script = ExtResource( 1 )
+max_scale = 100
 
 [node name="ColorRect" type="ColorRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -11,6 +13,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 color = Color( 0.133333, 0.137255, 0.137255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Overlay" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 180.0
+margin_bottom = 180.0
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

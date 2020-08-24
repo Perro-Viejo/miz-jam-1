@@ -4,6 +4,8 @@ signal SceneIsLoaded
 
 enum {IDLE, FADEOUT, FADEIN}
 
+const transition_duration := 1.2
+
 onready var CurrentScene = null
 onready var CurrentSceneInstance = $Levels.get_child($Levels.get_child_count() - 1)
 var NextScene
@@ -46,7 +48,7 @@ func on_ChangeScene(scene):
 
 	FadeState = FADEOUT
 
-	$FadeLayer/FadeTween.interpolate_property($FadeLayer, "percent", 0.0, 1.0, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.0)
+	$FadeLayer/FadeTween.interpolate_property($FadeLayer, "percent", 0.0, 1.0, transition_duration, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.0)
 	$FadeLayer/FadeTween.start()
 
 func on_Exit()->void:
@@ -90,7 +92,7 @@ func _on_FadeTween_tween_completed(object, key)->void:
 				yield(self, "SceneIsLoaded")
 			change_scene()
 			FadeState = FADEIN
-			$FadeLayer/FadeTween.interpolate_property($FadeLayer, "percent", 1.0, 0.0, 0.5, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.0)
+			$FadeLayer/FadeTween.interpolate_property($FadeLayer, "percent", 1.0, 0.0, transition_duration * 0.4, Tween.TRANS_LINEAR, Tween.EASE_IN, 0.0)
 			$FadeLayer/FadeTween.start()
 		FADEIN:
 			FadeState = IDLE
