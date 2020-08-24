@@ -42,4 +42,7 @@ func on_win():
 		Event.emit_signal('game_ended')
 
 func _on_lose():
+	Event.emit_signal("stop_requested", "UI", "Scope")
+	Event.emit_signal("stop_requested", "UI", "Car_Loop")
+	Event.emit_signal("stop_requested", "UI", "Car_Siren")
 	Event.emit_signal("Restart")

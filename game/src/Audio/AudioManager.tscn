@@ -45,6 +45,11 @@ stream = ExtResource( 2 )
 volume_db = -14.0
 pitch_scale = 1.2
 
+[node name="Turbo" type="AudioStreamPlayer" parent="Boat"]
+stream = ExtResource( 2 )
+volume_db = -10.0
+pitch_scale = 0.9
+
 [node name="Loop" type="AudioStreamPlayer" parent="Boat"]
 stream = ExtResource( 3 )
 volume_db = -14.0
@@ -83,7 +88,7 @@ stream = ExtResource( 10 )
 
 [node name="inGame" type="AudioStreamPlayer" parent="MX"]
 stream = ExtResource( 7 )
-volume_db = -5.0
+volume_db = -11.0
 
 [node name="Menu" type="AudioStreamPlayer" parent="MX"]
 stream = ExtResource( 6 )
@@ -222,3 +227,13 @@ pitch_scale = 1.3
 stream = ExtResource( 34 )
 volume_db = -16.0
 pitch_scale = 1.3
+
+[node name="Transition_Up" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 2 )
+volume_db = -7.0
+pitch_scale = 0.5
+
+[node name="Transition_Down" type="AudioStreamPlayer" parent="UI"]
+stream = ExtResource( 2 )
+volume_db = -10.0
+pitch_scale = 0.4

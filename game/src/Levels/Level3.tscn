@@ -18,7 +18,7 @@
 [ext_resource path="res://src/Characters/Enemy/Kraken.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/Characters/JumpingBoat/JumpingBoat.tscn" type="PackedScene" id=17]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Appear"
 tracks/0/type = "value"
 tracks/0/path = NodePath("JumpingBoat:modulate")
@@ -45,8 +45,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "GoParty"
+[sub_resource type="Animation" id=2]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("JumpingBoat:visible")
@@ -117,11 +116,12 @@ initial_angle = 90
 level_time = 60
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 1 )
 position = Vector2( 160.673, 90.309 )
+immortal = true
 
 [node name="TreasureArea" parent="." instance=ExtResource( 7 )]
 position = Vector2( 512, 472 )
+selected_item = "key"
 
 [node name="StartArea" parent="." instance=ExtResource( 8 )]
 position = Vector2( 32, 48 )
@@ -334,8 +334,8 @@ position = Vector2( 8, 32 )
 scale = Vector2( -1, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Appear = SubResource( 2 )
-anims/GoParty = SubResource( 1 )
+anims/Appear = SubResource( 1 )
+anims/GoParty = SubResource( 2 )
 
 [editable path="Enemies/Crab"]
 

@@ -21,10 +21,11 @@ func _unhandled_input(event):
 				
 				if dash_timer > 0 and dash_pressed >= 2 and !is_dashing:
 					is_dashing = true
+					Event.emit_signal("play_requested", "Boat", "Turbo")
+					Event.emit_signal("play_requested", "Boat", "Loop")
 					owner.motion = Vector2(owner.speed*2, 0).rotated(owner.rotation - PI/2)
 					owner.play_splatter()
 					moving = true
-					Event.emit_signal("play_requested", "Boat", "Start")
 				
 
 func _physics_process(delta) -> void:
