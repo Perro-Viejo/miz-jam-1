@@ -29,6 +29,7 @@ func start():
 	Event.emit_signal("play_requested", "UI", "Car_Start")
 	yield(get_tree().create_timer(.7), 'timeout')
 	Event.emit_signal("play_requested", "UI", "Car_Loop")
+	Event.emit_signal("play_requested", "UI", "Car_Siren")
 	_tween.start()
 	
 
@@ -36,6 +37,7 @@ func start():
 func timeout(obj, key):
 	Event.emit_signal("play_requested", "UI", "Kill_Alert")
 	Event.emit_signal("stop_requested", "UI", "Car_Loop")
+	Event.emit_signal("stop_requested", "UI", "Car_Siren")
 	Event.emit_signal("target_deployed", $EndPoint)
 
 

@@ -15,6 +15,8 @@ func _process(delta):
 		started = false
 		visible = false
 		Event.emit_signal("stop_requested", "UI", "Scope")
+		Event.emit_signal("stop_requested", "UI", "Car_Loop")
+		Event.emit_signal("stop_requested", "UI", "Car_Siren")
 	if started: 
 		var player_direction = (player.global_position - global_position).normalized()
 		global_position += player_direction * speed
