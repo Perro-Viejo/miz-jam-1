@@ -117,7 +117,6 @@ level_time = 60
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 160.673, 90.309 )
-immortal = true
 
 [node name="TreasureArea" parent="." instance=ExtResource( 7 )]
 position = Vector2( 512, 472 )
